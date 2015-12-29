@@ -1,4 +1,4 @@
-;;; Autocomplete --- Summary
+;;; Auto-complete-setup --- Summary
 ;;; Commentary:
 ;;; Code:
 
@@ -7,7 +7,6 @@
 (yas-global-mode 1)
 
 (require 'auto-complete)
-
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
 (setq ac-auto-start nil)
@@ -37,4 +36,5 @@
 ;; (ac-set-trigger-key "TAB")
 ;; (ac-set-trigger-key "<tab>")
 
-(provide 'auto-complete-config)
+(provide 'auto-complete-setup)
+;;; auto-complete-setup.el ends here

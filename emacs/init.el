@@ -1,3 +1,11 @@
+;;; Init.el --- Summary
+
+;;; Commentary:
+;;  My standard emacs init config
+
+;;; Code:
+
+
 (require 'cask "/opt/cask/cask.el")
 (cask-initialize)
 
@@ -34,27 +42,18 @@
 (require 'tool-bar)
 (tool-bar-mode nil)
 
-;; Resize the window
-(if window-system
-    (progn
-        (setq default-frame-alist '(
-            (width . 166)
-            (height . 50)
-            (menu-bar-lines . 1)))
-        (message "In Window System")
-        (delete-other-windows)
-        (split-window-horizontally)))
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;       Load module configs
 
 
+;; Set up load path
+(add-to-list 'load-path (expand-file-name "configs" user-emacs-directory))
+
 
 ;;; (depends-on "auto-complete")
-(require 'auto-complete-config)
+(require 'auto-complete-setup)
 
 
 ;;; (depends-on "dired-details+")
@@ -70,15 +69,9 @@
 (setq fci-rule-column 80)
 (add-hook 'after-change-major-mode-hook 'fci-mode)
 
+
 ;;; (depends-on "flycheck")
-(require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(setq flycheck-display-errors-delay .1)
-
-
-;;; (depends-on "js2-mode")
-(require 'js2-mode)
-(setq js2-basic-offset 2)
+(require 'flycheck-setup)
 
 
 ;;; (depends-on "jedi")
@@ -89,10 +82,63 @@
 )
 
 
+;;; (depends-on "js2-mode")
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(setq js2-basic-offset 2)
+
+
+;;; (depends-on "json-mode")
+(require 'js2-mode)
+(setq
+   json-reformat:indent-width 2
+   js-indent-level 2
+)
+
+
 ;;; (depends-on "pallet")
 (require 'pallet)
 (pallet-mode t)
 
 
+;;; (depends-on "web-mode")
+(defun my-web-mode-hook ()
+  "Hooks for Web mode, adjust indent."
+  ;;; http://web-mode.org/
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+;; Handle JSX files from:
+;; https://truongtx.me/2014/03/10/emacs-setup-jsx-mode-and-jsx-syntax-checking/
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(defadvice web-mode-highlight-part (around tweak-jsx activate)
+  "Display the error message/highlight the error."
+  (if (equal web-mode-content-type "jsx")
+      (let ((web-mode-enable-part-face nil))
+        ad-do-it)
+    ad-do-it))
+(add-hook 'jsx-mode-hook (lambda () (auto-complete-mode 1)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;       Finalize the window layout
+
+
+;; Resize the window
+(if window-system
+    (progn
+        (setq default-frame-alist '(
+            (width . 170)
+            (height . 50)
+            (menu-bar-lines . 1)))
+        (message "In Window System")
+        (delete-other-windows)
+        (split-window-horizontally)))
+
+
 
 (provide 'init)
+;;; init.el ends here
