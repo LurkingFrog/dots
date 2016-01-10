@@ -40,7 +40,7 @@
 
 ; don't show the tool bar
 (require 'tool-bar)
-(tool-bar-mode nil)
+(tool-bar-mode -1)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -103,11 +103,16 @@
 
 ;;; (depends-on "web-mode")
 (defun my-web-mode-hook ()
-  "Hooks for Web mode, adjust indent."
-  ;;; http://web-mode.org/
+  "Hooks for Web mode.
+
+   Set the indents and kill fci-mode since there is a bug
+   https://github.com/alpaker/Fill-Column-Indicator/issues/46"
+
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2))
+  (setq web-mode-code-indent-offset 2)
+  (when fci-mode (fci-mode -1)))
+
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;; Handle JSX files from:

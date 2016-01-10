@@ -19,6 +19,7 @@
 (depends-on "pallet")
 (depends-on "python-mode")
 (depends-on "rust-mode")
+(depends-on "scss-mode")
 (depends-on "tern")
 (depends-on "tern-auto-complete")
 (depends-on "web-mode")

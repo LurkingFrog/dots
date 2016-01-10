@@ -1,0 +1,12 @@
+[user]
+        email = git@landfillinc.com
+[push]
+        default = upstream
+[grep]
+        extendRegexp = true
+        lineNumber = true
+[alias]
+        g = grep --break --heading --line-number --color
+        dc = diff --color
+        dn = diff --name-only
+        lp = log -p --color
