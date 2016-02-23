@@ -1,7 +1,7 @@
 ;;; Init.el --- Summary
 
 ;;; Commentary:
-;;  My standard emacs init config
+;;  My standard Emacs init config
 
 ;;; Code:
 
@@ -111,7 +111,7 @@
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
-  (when fci-mode (fci-mode -1)))
+  (when fci-mode (fci-mode nil)))
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
