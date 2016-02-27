@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-
+# TODO: Add self to sudoers
 # My DHCP doesn't seem to be supplying this line in /etc/network/interfaces
 # dns-nameservers 208.67.222.222 208.67.220.220 71.250.0.12
 
@@ -24,9 +24,12 @@ fi
 # setup git
 ln -s ~/dots/git/gitconfig ~/.gitconfig
 
-# setup ZSH
+# setup the shell
+ln -s ~/dots/shell/screenrc ~/.screenrc
+
+echo "Adding ZSH as default shell for $USER"
 sudo usermod -s /bin/zsh $USER
-ln -s ~/dots/zsh/zshrc ~/.zshrc
+ln -s ~/dots/shell/zshrc ~/.zshrc
 
 cd ~
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -48,7 +51,7 @@ ln -s ~/dots/emacs/init.el ~/.emacs.d/init.el
 
 # Setup node (with modules for emacs' flycheck)
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-sudo apt-get -y install nodejs
+sudo apt-get install -y nodejs
 
 curl https://www.npmjs.com/install.sh | sudo sh
 sudo npm cache clean -f
@@ -56,5 +59,5 @@ sudo npm install -g n
 sudo n stable
 
 ln -s ~/dots/node/eslintrc ~/.eslintrc
-sudo npm install -g eslint-plugin-react eslint jsxhint tern npm-check-updates \
+sudo npm install -g eslint-plugin-react eslint tern npm-check-updates \
      diff-so-fancy

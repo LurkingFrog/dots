@@ -1,0 +1,5 @@
+# Return to the beginning of the line ^A
+escape ^Bb
+
+# Bigger is better
+defscrollback 30000
