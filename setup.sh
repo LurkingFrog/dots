@@ -4,6 +4,11 @@
 # My DHCP doesn't seem to be supplying this line in /etc/network/interfaces
 # dns-nameservers 208.67.222.222 208.67.220.220 71.250.0.12
 
+# Make sure the /opt directory exists and can be modified by this script
+mkdir -p /opt
+sudo chmod -R 777 /opt
+
+
 # Get the usual installs
 sudo apt-get update
 sudo apt-get install -y git emacs zsh curl
@@ -29,7 +34,6 @@ ln -s ~/dots/oh-my-zsh/frog.zsh-theme ~/.oh-my-zsh/themes/frog.zsh-theme
 
 
 # Setup emacs
-sudo chmod -R 777 /opt
 cd /opt
 git clone https://github.com/cask/cask
 
@@ -44,7 +48,7 @@ ln -s ~/dots/emacs/init.el ~/.emacs.d/init.el
 
 # Setup node (with modules for emacs' flycheck)
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-sudo apt-get install nodejs
+sudo apt-get -y install nodejs
 
 curl https://www.npmjs.com/install.sh | sudo sh
 sudo npm cache clean -f
@@ -52,4 +56,5 @@ sudo npm install -g n
 sudo n stable
 
 ln -s ~/dots/node/eslintrc ~/.eslintrc
-sudo npm install -g eslint-plugin-react eslint jsxhint tern npm-check-updates
+sudo npm install -g eslint-plugin-react eslint jsxhint tern npm-check-updates \
+     diff-so-fancy
