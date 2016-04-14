@@ -48,6 +48,7 @@ ln -s ~/dots/emacs/init.el ~/.emacs.d/init.el
 
 /opt/cask/bin/cask install
 
+ln -s ~/dots/node/eslintrc ~/.eslintrc
 
 # Setup node (with modules for emacs' flycheck)
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
@@ -55,9 +56,5 @@ sudo apt-get install -y nodejs
 
 curl https://www.npmjs.com/install.sh | sudo sh
 sudo npm cache clean -f
-sudo npm install -g n
+sudo npm -d install -g ~/dots/node/
 sudo n stable
-
-ln -s ~/dots/node/eslintrc ~/.eslintrc
-sudo npm install -g eslint-plugin-react eslint tern npm-check-updates \
-     diff-so-fancy
