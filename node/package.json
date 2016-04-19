@@ -4,12 +4,13 @@
   "private": true,
   "license": "None",
   "dependencies": {
+    "babel-eslint": "latest",
+    "diff-so-fancy": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react": "latest",
+    "n": "latest",
     "npm-check-updates": "latest",
     "npm-check": "latest",
-    "n": "latest",
-    "eslint": "latest",
-    "tern": "latest",
-    "diff-so-fancy": "latest",
-    "eslint-plugin-react": "latest"
+    "tern": "latest"
   }
 }
