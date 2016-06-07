@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; This is needed so I can use the current buffer for testing
+(setq lexical-binding t)
+
 
 (require 'cask "/opt/cask/cask.el")
 (cask-initialize)
@@ -44,7 +47,6 @@
 (require 'tool-bar)
 (tool-bar-mode -1)
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;       Load module configs
@@ -68,13 +70,27 @@
 
 ;;; (depends-on "fill-column-indicator")
 (require 'fill-column-indicator)
-(setq fci-rule-column 80)
-(add-hook 'after-change-major-mode-hook 'fci-mode)
+(add-hook 'after-change-major-mode-hook
+  (lambda ()
+    ;; (message "Running Change Mode Hook for buffer %s %s" buffer-file-name (length buffer-file-name))
+    (when (> (length buffer-file-name) 0)
+      ;; Turn on fci-mode iff the file is not a jsx
+      (if (string-match "\\.jsx$" buffer-file-name) (turn-off-fci-mode) (turn-on-fci-mode))
+
+      ;; Change the fci column to 120 if is python, 80 if not
+      (make-local-variable 'fci-rule-column)
+      (if (string-match "\\.py$" buffer-file-name) (setq fci-rule-column 80) (setq fci-rule-column 120))
+    )
+  )
+)
+
 
 
 ;;; (depends-on "flycheck")
 (require 'flycheck-setup)
 
+;;; (depends-on "flycheck-rust")
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
 ;;; (depends-on "jedi")
 (require 'jedi)
@@ -112,8 +128,7 @@
 
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (when fci-mode (fci-mode nil)))
+  (setq web-mode-code-indent-offset 2))
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
@@ -126,8 +141,17 @@
       (let ((web-mode-enable-part-face nil))
         ad-do-it)
     ad-do-it))
+
 (add-hook 'jsx-mode-hook (lambda () (auto-complete-mode 1)))
 
+
+
+(defun string/ends-with (s ending)
+  "Return non-nil if string S ends with ENDING."
+  (cond ((>= (length s) (length ending))
+         (let ((elength (length ending)))
+           (string= (substring s (- 0 elength)) ending)))
+        (t nil)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -138,14 +162,16 @@
 (if window-system
     (progn
         (setq default-frame-alist '(
-            (width . 170)
-            (height . 50)
+            (width . 250)
+            (height . 100)
             (menu-bar-lines . 1)))
         (message "In Window System")
         (delete-other-windows)
         (split-window-horizontally)))
 
 
+;; If the font size is too small, eval (M-:) this statement
+;; (set-face-attribute 'default nil :height 150)
 
 (provide 'init)
 ;;; init.el ends here
