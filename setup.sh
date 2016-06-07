@@ -43,7 +43,9 @@ mkdir -p ~/.emacs.d
 cd ~/.emacs.d
 ln -s ~/dots/emacs/Cask ~/.emacs.d/Cask
 ln -s ~/dots/emacs/configs ~/.emacs.d/configs
+ln -s ~/dots/emacs/configs/scss-lint.yml ~/.scss-lint.yml
 ln -s ~/dots/emacs/init.el ~/.emacs.d/init.el
+
 
 /opt/cask/bin/cask install
 

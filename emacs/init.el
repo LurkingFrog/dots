@@ -119,6 +119,11 @@
 (pallet-mode t)
 
 
+;;; (depends-on "scss-mode")
+(require 'scss-mode)
+(setq css-indent-offset 2)
+
+
 ;;; (depends-on "web-mode")
 (defun my-web-mode-hook ()
   "Hooks for Web mode.
