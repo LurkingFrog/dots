@@ -11,8 +11,7 @@ sudo chmod -R 777 /opt
 
 # Get the usual installs
 sudo apt-get update
-sudo apt-get install -y git emacs zsh curl
-
+sudo apt-get install -y git emacs zsh curl ruby-sass
 
 if [ ! -d ~/dots/git ]; then
     cd ~
@@ -58,3 +57,6 @@ curl https://www.npmjs.com/install.sh | sudo sh
 sudo npm cache clean -f
 sudo npm -d install -g ~/dots/node/
 sudo n stable
+
+# Add in the scss linter
+sudo gem install scss_lint scss_lint_reporter_checkstyle
