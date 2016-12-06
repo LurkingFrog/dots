@@ -13,7 +13,7 @@ sudo chmod -R 777 /opt
 
 # Get the usual installs
 sudo apt-get update
-sudo apt-get install -y git emacs zsh curl ruby-sass
+sudo apt-get install -y git emacs zsh curl ruby-sass flake8
 
 if [ ! -d ~/dots/git ]; then
     cd ~

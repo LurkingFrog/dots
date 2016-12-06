@@ -7,8 +7,9 @@
 (yas-global-mode 1)
 
 (require 'auto-complete)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(require 'auto-complete-config)
 (ac-config-default)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (setq ac-auto-start nil)
 (setq ac-quick-help-delay 0.5)
 (ac-set-trigger-key "TAB")

@@ -53,11 +53,12 @@
 
 
 ;; Set up load path
-(add-to-list 'load-path (expand-file-name "configs" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "configs/" user-emacs-directory))
 
 
 ;;; (depends-on "auto-complete")
-(require 'auto-complete-setup)
+; The above add-to-list isn't working correctly, so I'm hard coding this for now
+(require 'auto-complete-setup (expand-file-name "configs/auto-complete-setup.el" user-emacs-directory))
 
 
 ;;; (depends-on "dired-details+")
@@ -85,9 +86,8 @@
 )
 
 
-
 ;;; (depends-on "flycheck")
-(require 'flycheck-setup)
+(require 'flycheck-setup  (expand-file-name "configs/flycheck-setup.el" user-emacs-directory))
 
 ;;; (depends-on "flycheck-rust")
 ;; (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
