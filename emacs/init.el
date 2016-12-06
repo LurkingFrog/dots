@@ -90,7 +90,7 @@
 (require 'flycheck-setup)
 
 ;;; (depends-on "flycheck-rust")
-(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+;; (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
 ;;; (depends-on "jedi")
 (require 'jedi)
@@ -174,9 +174,14 @@
         (delete-other-windows)
         (split-window-horizontally)))
 
+;; put the full path of the current buffer in the frame bar
+(setq frame-title-format '
+      ((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name))))
+       "%b @ " system-name))
+
 
 ;; If the font size is too small, eval (M-:) this statement
-;; (set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 125)
 
 (provide 'init)
 ;;; init.el ends here

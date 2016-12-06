@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+# This requires my usual git key if I want to edit
+
 # TODO: Add self to sudoers
 # My DHCP doesn't seem to be supplying this line in /etc/network/interfaces
 # dns-nameservers 208.67.222.222 208.67.220.220 71.250.0.12
@@ -15,7 +17,11 @@ sudo apt-get install -y git emacs zsh curl ruby-sass
 
 if [ ! -d ~/dots/git ]; then
     cd ~
+    # Read Only
     git clone http://github.com/lurkingfrog/dots
+
+    # Requires ssh key, but can push edits
+    # git clone git@github.com:LurkingFrog/dots
 else
     echo "Already cloned dots from git"
 fi
