@@ -1,0 +1,11 @@
+# Javascript modules
+node_modules
+
+# Editors - vi
+*.swp
+
+# Editors - emacs
+*~
+\#*
+.\#*
+*_flymake.py

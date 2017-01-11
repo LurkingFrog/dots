@@ -13,7 +13,7 @@ sudo chmod -R 777 /opt
 
 # Get the usual installs
 sudo apt-get update
-sudo apt-get install -y git emacs zsh curl ruby-sass flake8
+sudo apt-get install -y git emacs zsh curl ruby-sass flake8 terminator
 
 if [ ! -d ~/dots/git ]; then
     cd ~
@@ -39,6 +39,10 @@ ln -s ~/dots/shell/zshrc ~/.zshrc
 cd ~
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 ln -s ~/dots/oh-my-zsh/frog.zsh-theme ~/.oh-my-zsh/themes/frog.zsh-theme
+
+# Use my normal terminal config (Currently using terminator)
+mkdir -p ~/.config/terminator
+ln -s ~/dots/shell/terminator/config ~/.config/terminator
 
 
 # Setup emacs

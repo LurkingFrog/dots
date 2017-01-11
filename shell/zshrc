@@ -24,3 +24,4 @@ export EDITOR=/usr/bin/emacs
 alias pip-update="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U"
 alias npm="npm -d"
 alias dux="du -h --max-depth=1"
+alias shup="~/dots/update.sh"
