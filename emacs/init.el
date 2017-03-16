@@ -96,9 +96,15 @@
 (require 'jedi)
 (setq
    jedi:complete-on-dot t
-   jedi:setup-keys t
 )
 
+
+;;; (depends-on "fsharp-mode")
+(require 'fsharp-mode)
+(setq-default
+  fsharp-indent-offset 2
+  fsharp-ac-debug 2
+)
 
 ;;; (depends-on "js2-mode")
 (require 'js2-mode)
@@ -107,7 +113,7 @@
 
 
 ;;; (depends-on "json-mode")
-(require 'js2-mode)
+(require 'json-mode)
 (setq
    json-reformat:indent-width 2
    js-indent-level 2
@@ -177,11 +183,11 @@
 ;; put the full path of the current buffer in the frame bar
 (setq frame-title-format '
       ((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name))))
-       "%b @ " system-name))
+       "%b - @ " system-name))
 
 
 ;; If the font size is too small, eval (M-:) this statement
-(set-face-attribute 'default nil :height 125)
+(set-face-attribute 'default nil :height 100)
 
 (provide 'init)
 ;;; init.el ends here
