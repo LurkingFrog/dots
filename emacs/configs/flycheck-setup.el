@@ -7,6 +7,9 @@
 
 (require 'flycheck)
 
+;; Nested configurations
+(require 'flycheck-stylelint)
+
 ;; Global config settings
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq flycheck-display-errors-delay .1)

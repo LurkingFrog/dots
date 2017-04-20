@@ -157,6 +157,13 @@
 
 (add-hook 'jsx-mode-hook (lambda () (auto-complete-mode 1)))
 
+;; Load in tern-js
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+(add-hook 'web-mode-hook (lambda () (tern-mode t)))
+(eval-after-load 'tern
+   '(progn
+      (require 'tern-auto-complete)
+      (tern-ac-setup)))
 
 
 (defun string/ends-with (s ending)
@@ -186,7 +193,6 @@
 (setq frame-title-format '
       ((:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name))))
        "%b - @ " system-name))
-
 
 ;; If the font size is too small, eval (M-:) this statement
 (set-face-attribute 'default nil :height 100)

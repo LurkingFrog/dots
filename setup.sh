@@ -60,6 +60,7 @@ ln -s ~/dots/emacs/init.el ~/.emacs.d/init.el
 /opt/cask/bin/cask install
 
 ln -s ~/dots/node/eslintrc ~/.eslintrc
+ln -s ~/dots/node/tern-config ~/.tern-config
 
 # Setup node (with modules for emacs' flycheck)
 curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -

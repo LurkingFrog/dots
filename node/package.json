@@ -14,6 +14,8 @@
     "n": "latest",
     "npm-check-updates": "latest",
     "npm-check": "latest",
-    "tern": "latest"
+    "stylelint": "latest",
+    "tern": "latest",
+    "tern-jsx": "latest"
   }
 }
