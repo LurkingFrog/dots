@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "trailing-spaces.trimOnSave": true,
+    "editor.tabSize": 2,
+    "editor.renderIndentGuides": false,
+    "window.zoomLevel": 0,
+    "workbench.welcome.enabled": false,
+    "FSharp.automaticProjectModification": true,
+    "Expecto.runDebug": true,
+    "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG"
+}

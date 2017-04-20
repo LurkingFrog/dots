@@ -13,7 +13,7 @@ sudo chmod -R 777 /opt
 
 # Get the usual installs
 sudo apt-get update
-sudo apt-get install -y git emacs zsh curl ruby-sass flake8 terminator
+sudo apt-get install -y git emacs zsh curl ruby-sass flake8 terminator sqlitebrowser
 
 if [ ! -d ~/dots/git ]; then
     cd ~
@@ -62,7 +62,7 @@ ln -s ~/dots/emacs/init.el ~/.emacs.d/init.el
 ln -s ~/dots/node/eslintrc ~/.eslintrc
 
 # Setup node (with modules for emacs' flycheck)
-curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 curl https://www.npmjs.com/install.sh | sudo sh
@@ -72,3 +72,16 @@ sudo n stable
 
 # Add in the scss linter
 sudo gem install scss_lint scss_lint_reporter_checkstyle
+
+# VSCode setup
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+sudo apt-get update
+sudo apt-get install code-insiders
+while IFS='' read -r x || [[ -n "$x" ]]; do
+    code-insiders --install-extension $x;
+done < ~/dots/vscode/extensions.lst
+
+ln -s ~/dots/vscode/User/settings.json .config/Code\ -\ Insiders/User
