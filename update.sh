@@ -6,8 +6,9 @@ cd ~/.emacs.d
 
 # Update node modules
 cd ~/dots/node
+
 echo "Updating NPM"
-sudo n stable
+sudo npm i -g npm
 
 echo "Upgrading node modules"
 sudo npm i -g

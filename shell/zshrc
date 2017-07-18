@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/zsh
 
 # Set the path
 PATH=/home/dfogelson/bin
@@ -8,7 +8,7 @@ PATH=$PATH:/usr/bin
 PATH=$PATH::/sbin
 PATH=$PATH:/bin
 PATH=$PATH:/opt/cask/bin
-PATH=$PATH:/usr/local/lib/node_modules/DotsGlobalPackages/node_modules/.bin
+PATH=$PATH:/usr/lib/node_modules/DotsGlobalPackages/node_modules/.bin
 export PATH=$PATH
 
 ZSH=$HOME/.oh-my-zsh
@@ -22,6 +22,5 @@ export EDITOR=/usr/bin/emacs
 
 # This is just a pain so I'm aliasing it
 alias pip-update="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U"
-alias npm="npm -d"
 alias dux="du -h --max-depth=1"
 alias shup="~/dots/update.sh"
