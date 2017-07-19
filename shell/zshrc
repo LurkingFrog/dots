@@ -2,6 +2,7 @@
 
 # Set the path
 PATH=/home/dfogelson/bin
+PATH=$PATH:/home/dfogelson/.cargo/bin
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/sbin
 PATH=$PATH:/usr/bin

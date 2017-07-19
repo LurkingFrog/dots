@@ -74,6 +74,9 @@ sudo n stable
 # Add in the scss linter
 sudo gem install scss_lint scss_lint_reporter_checkstyle
 
+# add Mono
+
+
 # VSCode setup
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg

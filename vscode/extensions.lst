@@ -7,10 +7,16 @@ Ionide.Ionide-fsharp
 Ionide.Ionide-Paket
 PeterJausovec.vscode-docker
 dbaeumer.vscode-eslint
+donjayamanne.githistory
+eamodio.gitlens
+eg2.vscode-npm-script
 eriklynd.json-tools
 fknop.vscode-npm
 formulahendry.auto-close-tag
+<<<<<<< HEAD
 formulahendry.docker-explorer
+=======
+>>>>>>> cff8b65a110f54476d255610a39d0478c3f8e8dc
 gcazaciuc.vscode-flow-ide
 hiro-sun.vscode-emacs
 joshpeng.sublime-babel-vscode
@@ -19,9 +25,10 @@ k--kato.docomment
 kalitaalexey.vscode-rust
 ms-vscode.csharp
 ms-vscode.mono-debug
+msjsdiag.debugger-for-chrome
 richie5um2.vscode-filter-json
 richie5um2.vscode-statusbar-json-path
 robertohuertasm.vscode-icons
 shardulm94.trailing-spaces
-spywhere.guides
 taichi.react-beautify
+waderyan.gitblame
