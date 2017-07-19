@@ -85,7 +85,7 @@ while IFS='' read -r x || [[ -n "$x" ]]; do
     code-insiders --install-extension $x;
 done < ~/dots/vscode/extensions.lst
 
-ln -s ~/dots/vscode/User/settings.json .config/Code\ -\ Insiders/User
+ln -s ~/dots/vscode/User/settings.json ~/.config/Code\ -\ Insiders/User
 
 # Lets add Rust while I'm at it
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
