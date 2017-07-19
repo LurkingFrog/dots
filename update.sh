@@ -7,8 +7,9 @@ cd ~/.emacs.d
 # Update node modules
 export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
 cd ~/dots/node
+
 echo -e "\nUpdating NPM"
-sudo n stable
+sudo npm i -g npm
 
 echo -e "\nUpgrading node modules"
 sudo npm i -g

@@ -3,7 +3,7 @@
     "trailing-spaces.trimOnSave": true,
     "editor.tabSize": 2,
     "editor.renderIndentGuides": false,
-    "window.zoomLevel": 3,
+    "window.zoomLevel": -1,
     "FSharp.automaticProjectModification": true,
     "Expecto.runDebug": true,
     "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",

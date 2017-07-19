@@ -74,6 +74,9 @@ sudo n stable
 # Add in the scss linter
 sudo gem install scss_lint scss_lint_reporter_checkstyle
 
+# add Mono
+
+
 # VSCode setup
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
@@ -85,7 +88,7 @@ while IFS='' read -r x || [[ -n "$x" ]]; do
     code-insiders --install-extension $x;
 done < ~/dots/vscode/extensions.lst
 
-ln -s ~/dots/vscode/User/settings.json .config/Code\ -\ Insiders/User
+ln -s ~/dots/vscode/User/settings.json ~/.config/Code\ -\ Insiders/User
 
 # Lets add Rust while I'm at it
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
