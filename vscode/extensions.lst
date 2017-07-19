@@ -10,29 +10,17 @@ PeterJausovec.vscode-docker
 dbaeumer.vscode-eslint
 donjayamanne.githistory
 eamodio.gitlens
-<<<<<<< HEAD
-eriklynd.json-tools
-fknop.vscode-npm
-formulahendry.auto-close-tag
-formulahendry.code-runner
-=======
 eg2.vscode-npm-script
 eriklynd.json-tools
 fknop.vscode-npm
 formulahendry.auto-close-tag
-<<<<<<< HEAD
+formulahendry.code-runner
 formulahendry.docker-explorer
-=======
->>>>>>> cff8b65a110f54476d255610a39d0478c3f8e8dc
->>>>>>> 5c11c6ca334d374d2cd45016313179ae8e5fd9ce
 gcazaciuc.vscode-flow-ide
 hiro-sun.vscode-emacs
 joshpeng.sublime-babel-vscode
-jpoissonnier.vscode-styled-components
-<<<<<<< HEAD
 jpogran.puppet-vscode
-=======
->>>>>>> 5c11c6ca334d374d2cd45016313179ae8e5fd9ce
+jpoissonnier.vscode-styled-components
 k--kato.docomment
 kalitaalexey.vscode-rust
 ms-vscode.csharp
@@ -42,5 +30,6 @@ richie5um2.vscode-filter-json
 richie5um2.vscode-statusbar-json-path
 robertohuertasm.vscode-icons
 shardulm94.trailing-spaces
+spywhere.guides
 taichi.react-beautify
 waderyan.gitblame
