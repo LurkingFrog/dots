@@ -9,7 +9,20 @@ PATH=$PATH:/usr/bin
 PATH=$PATH::/sbin
 PATH=$PATH:/bin
 PATH=$PATH:/opt/cask/bin
-PATH=$PATH:/usr/lib/node_modules/DotsGlobalPackages/node_modules/.bin
+
+# Node keeps moving this crap around and losing by clobal binaries
+if [ -e /home/dfogelson/dots/node/node_modules/.bin ]
+then
+  PATH=$PATH:/home/dfogelson/dots/node/node_modules/.bin
+fi
+
+if [ -e /usr/lib/node_modules/DotsGlobalPackages/node_modules/.bin ]
+then
+  PATH=$PATH:/usr/lib/node_modules/DotsGlobalPackages/node_modules/.bin
+fi
+
+
+
 export PATH=$PATH
 
 ZSH=$HOME/.oh-my-zsh
