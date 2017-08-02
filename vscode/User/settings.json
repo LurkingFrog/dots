@@ -18,5 +18,7 @@
         "**/.DS_Store": true
     },
     "window.newWindowDimensions": "inherit",
-    "search.useIgnoreFilesByDefault": true
+    "search.useIgnoreFilesByDefault": true,
+    "editor.wordWrap": "on",
+    "editor.rulers": [120]
 }
