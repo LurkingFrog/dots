@@ -12,6 +12,7 @@
 		"Ionide.Ionide-fsharp",
 		"Ionide.Ionide-Paket",
 		"PeterJausovec.vscode-docker",
+		"christian-kohler.npm-intellisense",
 		"dbaeumer.vscode-eslint",
 		"donjayamanne.githistory",
 		"eamodio.gitlens",
@@ -22,7 +23,6 @@
 		"formulahendry.code-runner",
 		"formulahendry.docker-explorer",
 		"gcazaciuc.vscode-flow-ide",
-		"hiro-sun.vscode-emacs",
 		"joshpeng.sublime-babel-vscode",
 		"jpogran.puppet-vscode",
 		"jpoissonnier.vscode-styled-components",
@@ -37,6 +37,7 @@
 		"shardulm94.trailing-spaces",
 		"spywhere.guides",
 		"taichi.react-beautify",
-		"waderyan.gitblame"
+		"waderyan.gitblame",
+
 	]
 }

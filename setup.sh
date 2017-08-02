@@ -63,10 +63,9 @@ ln -s ~/dots/node/eslintrc ~/.eslintrc
 ln -s ~/dots/node/tern-config ~/.tern-config
 
 # Setup node (with modules for emacs' flycheck)
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-curl https://www.npmjs.com/install.sh | sudo sh
 sudo npm cache clean -f
 sudo npm -d install -g ~/dots/node/
 sudo n stable
@@ -88,7 +87,23 @@ while IFS='' read -r x || [[ -n "$x" ]]; do
     code-insiders --install-extension $x;
 done < ~/dots/vscode/extensions.lst
 
+mkdir ~/dots/.vscode
 ln -s ~/dots/vscode/User/settings.json ~/.config/Code\ -\ Insiders/User
+ln -s ~/dots/vscode/User/extensions.json ~/dots/.vscode
+ln -s ~/dots/vscode/User/keybindings.json ~/.config/Code\ -\ Insiders/User
 
 # Lets add Rust while I'm at it
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
+
+
+# And Docker
+sudo apt-get install -y \
+    linux-image-extra-$(uname -r) \
+    linux-image-extra-virtual
+
+sudo apt-get update
+
+curl -fsSL https://get.docker.com/ | sudo sh
+
+sudo apt-get install -y docker-compose
+sudo usermod -aG docker dfogelson
