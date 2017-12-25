@@ -78,21 +78,21 @@
 )
 
 ;;; (depends-on "fill-column-indicator")
-(require 'fill-column-indicator)
-(add-hook 'after-change-major-mode-hook
-  (lambda ()
+;;; (require 'fill-column-indicator)
+;; (add-hook 'after-change-major-mode-hook
+;;  (lambda ()
     ;; (message "Running Change Mode Hook for buffer %s %s" buffer-file-name (length buffer-file-name))
-    (when (> (length buffer-file-name) 0)
+ ;;   (when (> (length buffer-file-name) 0)
       ;; Turn on fci-mode iff the file is not a jsx
-      (if (string-match "\\.jsx$" buffer-file-name) (turn-off-fci-mode) (turn-on-fci-mode))
-      (if (string-match "\\.fsx?$" buffer-file-name) (turn-off-fci-mode) (turn-on-fci-mode))
+   ;;   (if (string-match "\\.jsx$" buffer-file-name) (turn-off-fci-mode) (turn-on-fci-mode))
+;;      (if (string-match "\\.fsx?$" buffer-file-name) (turn-off-fci-mode) (turn-on-fci-mode))
 
       ;; Change the fci column to 120 if is python, 80 if not
-      (make-local-variable 'fci-rule-column)
-      (if (string-match "\\.py$" buffer-file-name) (setq fci-rule-column 80) (setq fci-rule-column 120))
-    )
-  )
-)
+;;      (make-local-variable 'fci-rule-column)
+;;      (if (string-match "\\.py$" buffer-file-name) (setq fci-rule-column 80) (setq fci-rule-column 120))
+;;    )
+;;  )
+;;)
 
 
 ;;; (depends-on "flycheck")

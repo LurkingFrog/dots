@@ -6,17 +6,17 @@
   "dependencies": {
     "babel-eslint": "latest",
     "diff-so-fancy": "latest",
-    "eslint": "^4.2.0",
+    "eslint": "^4.3.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "latest",
-    "flow-bin": "^0.49.1",
+    "flow-bin": "^0.51.0",
     "flow-typed": "latest",
     "n": "^2.1.8",
     "npm-check": "latest",
     "npm-check-updates": "^2.12.1",
-    "stylelint": "^7.13.0",
+    "stylelint": "^8.0.0",
     "tern": "latest",
     "tern-jsx": "latest"
   }
