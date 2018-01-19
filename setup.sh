@@ -63,11 +63,16 @@ ln -s ~/dots/node/eslintrc ~/.eslintrc
 ln -s ~/dots/node/tern-config ~/.tern-config
 
 # Setup node (with modules for emacs' flycheck)
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-curl https://www.npmjs.com/install.sh | sudo sh
-sudo npm cache clean -f
+# The installer is broken on NPM. Instead, let's install it from git
+#curl https://www.npmjs.com/install.sh | sudo sh
+#sudo npm cache clean -f
+
+git clone https://github.com/npm/npm.git /tmp/npm
+cd /tmp/npm
+sudo make install
 sudo npm -d install -g ~/dots/node/
 sudo n stable
 
@@ -75,9 +80,14 @@ sudo n stable
 sudo gem install scss_lint scss_lint_reporter_checkstyle
 
 # add Mono
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb http://download.mono-project.com/repo/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/mono-official.list
+sudo apt-get update
+sudo apt-get install -y mono-devel
 
 
 # VSCode setup
+cd /tmp
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
