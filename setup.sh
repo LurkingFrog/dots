@@ -67,6 +67,7 @@ curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # The installer is broken on NPM. Instead, let's install it from git
+# https://stackoverflow.com/questions/46271343/npm-install-error-cannot-find-module-read-package-json-js
 #curl https://www.npmjs.com/install.sh | sudo sh
 #sudo npm cache clean -f
 
@@ -99,6 +100,7 @@ while IFS='' read -r x || [[ -n "$x" ]]; do
 done < ~/dots/vscode/extensions.lst
 
 ln -s ~/dots/vscode/User/settings.json ~/.config/Code\ -\ Insiders/User
+ln -s ~/dots/vscode/User/keybindings.json ~/.config/Code\ -\ Insiders/User
 
 # Lets add Rust while I'm at it
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
