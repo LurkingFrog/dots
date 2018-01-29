@@ -20,5 +20,6 @@
     "editor.wordWrap": "on",
     "editor.rulers": [
         120
-    ]
+    ],
+    "editor.formatOnSave": true
 }
