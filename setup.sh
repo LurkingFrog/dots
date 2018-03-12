@@ -6,6 +6,11 @@
 # My DHCP doesn't seem to be supplying this line in /etc/network/interfaces
 # dns-nameservers 208.67.222.222 208.67.220.220 71.250.0.12
 
+# Fix a common develop issue - not enough watches
+echo "fs.inotify.max_user_watches=524288" | sudo tee /etc/sysctl.conf
+sudo sysctl -p
+
+
 # Make sure the /opt directory exists and can be modified by this script
 mkdir -p /opt
 sudo chmod -R 777 /opt
@@ -77,14 +82,23 @@ sudo make install
 sudo npm -d install -g ~/dots/node/
 sudo n stable
 
-# Add in the scss linter
-sudo gem install scss_lint scss_lint_reporter_checkstyle
+# Add in the scss linter (Deprecated due to using Styled Components)
+# sudo gem install scss_lint scss_lint_reporter_checkstyle
+
+# add Docker tools
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-compose
+sudo usermod -aG docker $(whoami)
+
 
 # add Mono
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb http://download.mono-project.com/repo/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/mono-official.list
 sudo apt-get update
 sudo apt-get install -y mono-devel
+
 
 
 # VSCode setup
@@ -94,13 +108,14 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 sudo apt-get update
-sudo apt-get install code-insiders
+sudo apt-get install -y code-insiders
 while IFS='' read -r x || [[ -n "$x" ]]; do
     code-insiders --install-extension $x;
 done < ~/dots/vscode/extensions.lst
 
 ln -s ~/dots/vscode/User/settings.json ~/.config/Code\ -\ Insiders/User
 ln -s ~/dots/vscode/User/keybindings.json ~/.config/Code\ -\ Insiders/User
+
 
 # Lets add Rust while I'm at it
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
