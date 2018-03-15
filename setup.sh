@@ -23,10 +23,11 @@ sudo apt-get install -y git emacs zsh curl ruby-sass flake8 terminator sqlitebro
 if [ ! -d ~/dots/git ]; then
     cd ~
     # Read Only
-    git clone http://github.com/lurkingfrog/dots
+    #git clone http://github.com/lurkingfrog/dots
 
     # Requires ssh key, but can push edits
-    # git clone git@github.com:LurkingFrog/dots
+    git clone git@github.com:LurkingFrog/dots
+    
 else
     echo "Already cloned dots from git"
 fi
