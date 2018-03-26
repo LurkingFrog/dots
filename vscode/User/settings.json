@@ -20,5 +20,17 @@
     "editor.wordWrap": "on",
     "editor.rulers": [
         120
-    ]
+    ],
+    "editor.formatOnSave": true,
+    "gitlens.keymap": "alternate",
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/packages": true,
+        "**/paket-files": true,
+        "**/build": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/.git": true
+    }
 }
