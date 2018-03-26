@@ -19,7 +19,6 @@ sudo chmod -R 777 /opt
 # Get the usual installs
 sudo apt-get update
 sudo apt-get install -y git emacs zsh curl ruby-sass flake8 terminator sqlitebrowser
-
 if [ ! -d ~/dots/git ]; then
     cd ~
     # Read Only
@@ -27,7 +26,7 @@ if [ ! -d ~/dots/git ]; then
 
     # Requires ssh key, but can push edits
     git clone git@github.com:LurkingFrog/dots
-    
+
 else
     echo "Already cloned dots from git"
 fi
@@ -69,12 +68,6 @@ ln -s ~/dots/node/eslintrc ~/.eslintrc
 ln -s ~/dots/node/tern-config ~/.tern-config
 
 # Setup node (with modules for emacs' flycheck)
-<<<<<<< HEAD
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-sudo npm cache clean -f
-=======
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
@@ -86,12 +79,9 @@ sudo apt-get install -y nodejs
 git clone https://github.com/npm/npm.git /tmp/npm
 cd /tmp/npm
 sudo make install
->>>>>>> ad085904706122c05944603e9e6d5566a9fd220c
 sudo npm -d install -g ~/dots/node/
 sudo n stable
 
-# Add in the scss linter (Deprecated due to using Styled Components)
-# sudo gem install scss_lint scss_lint_reporter_checkstyle
 
 # add Docker tools
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -100,6 +90,14 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-compose
 sudo usermod -aG docker $(whoami)
 
+# Use Yarn (Javascript)
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+deb https://dl.yarnpkg.com/debian/ stable main
+
+sudo apt-get install -y yarn
+
+# Add in the scss linter
+# sudo gem install scss_lint scss_lint_reporter_checkstyle
 
 # add Mono
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
@@ -146,3 +144,4 @@ curl -fsSL https://get.docker.com/ | sudo sh
 
 sudo apt-get install -y docker-compose
 sudo usermod -aG docker dfogelson
+
