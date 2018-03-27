@@ -4,8 +4,6 @@
     "editor.tabSize": 2,
     "editor.renderIndentGuides": false,
     "window.zoomLevel": -1,
-    "Expecto.runDebug": true,
-    "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",
     "editor.tabCompletion": true,
     "files.exclude": {
         "**/packages": true,
@@ -32,5 +30,7 @@
         "**/bin": true,
         "**/obj": true,
         "**/.git": true
-    }
+    },
+    "prettier.eslintIntegration": true,
+    "javascript.validate.enable": false
 }

@@ -120,14 +120,11 @@ while IFS='' read -r x || [[ -n "$x" ]]; do
 done < ~/dots/vscode/extensions.lst
 
 mkdir ~/dots/.vscode
-ln -s ~/dots/vscode/User/settings.json ~/.config/Code\ -\ Insiders/User
-<<<<<<< HEAD
+rm -f  ~/.config/Code\ -\ Insiders/User/settings.json \
+   && ln -s ~/dots/vscode/User/settings.json ~/.config/Code\ -\ Insiders/User
 ln -s ~/dots/vscode/User/extensions.json ~/dots/.vscode
 ln -s ~/dots/vscode/User/keybindings.json ~/.config/Code\ -\ Insiders/User
-=======
-ln -s ~/dots/vscode/User/keybindings.json ~/.config/Code\ -\ Insiders/User
 
->>>>>>> ad085904706122c05944603e9e6d5566a9fd220c
 
 # Lets add Rust while I'm at it
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
