@@ -125,6 +125,12 @@ rm -f  ~/.config/Code\ -\ Insiders/User/settings.json \
 ln -s ~/dots/vscode/User/extensions.json ~/dots/.vscode
 ln -s ~/dots/vscode/User/keybindings.json ~/.config/Code\ -\ Insiders/User
 
+# And link all the snippets
+for x in `ls -d -1 ~/dots/vscode/User/snippets/*json`; do \
+    echo  $x;\
+    ln -s $x ~/.config/Code\ -\ Insiders/User/snippets/;\
+done
+
 
 # Lets add Rust while I'm at it
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
