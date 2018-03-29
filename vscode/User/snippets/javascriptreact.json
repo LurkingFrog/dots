@@ -18,5 +18,24 @@
 			"// @flow"
 		],
 		"description": "Add a flow comment to a js file"
+	},
+	"React Component class": {
+		"prefix": "rcls",
+		"body": [
+			"type $1Props = {|",
+			"  className?: string",
+			"|};",
+			"",
+			"class $1 extends React.Component<$1Props, {}> {",
+			"  render() {",
+			"    return <div className={this.props.className}></div>;",
+			"  }",
+			"};",
+			"",
+			"let Styled$1=styled($1)`",
+			"",
+			"`;"
+		],
+		"description": "Create a new react component stub"
 	}
 }
