@@ -4,6 +4,8 @@
     "editor.tabSize": 2,
     "editor.renderIndentGuides": false,
     "window.zoomLevel": -1,
+    "Expecto.runDebug": true,
+    "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",
     "editor.tabCompletion": true,
     "files.exclude": {
         "**/packages": true,
@@ -32,5 +34,10 @@
         "**/.git": true
     },
     "prettier.eslintIntegration": true,
-    "javascript.validate.enable": false
+    "javascript.validate.enable": false,
+    "window.openFoldersInNewWindow": "on",
+    "window.restoreWindows": "all",
+    "gitlens.gitExplorer.files.layout": "auto",
+    "git.enableSmartCommit": true,
+    "vsicons.dontShowNewVersionMessage": true
 }
