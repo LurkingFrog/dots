@@ -22,7 +22,7 @@
         120
     ],
     "editor.formatOnSave": true,
-    "gitlens.keymap": "alternate",
+    "gitlens.keymap": "chorded",
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
@@ -39,5 +39,15 @@
     "window.restoreWindows": "all",
     "gitlens.gitExplorer.files.layout": "auto",
     "git.enableSmartCommit": true,
-    "vsicons.dontShowNewVersionMessage": true
+    "vsicons.dontShowNewVersionMessage": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    }
 }
