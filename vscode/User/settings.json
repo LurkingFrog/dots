@@ -3,7 +3,7 @@
     "trailing-spaces.trimOnSave": true,
     "editor.tabSize": 2,
     "editor.renderIndentGuides": false,
-    "window.zoomLevel": -1,
+    "window.zoomLevel": -2,
     "Expecto.runDebug": true,
     "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",
     "editor.tabCompletion": true,
@@ -49,5 +49,8 @@
         "suppressNoRepositoryWarning": false,
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
-    }
+    },
+    "gitlens.historyExplorer.enabled": true,
+    "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/",
+    "[scala]": {}
 }
