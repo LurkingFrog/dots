@@ -1,45 +1,24 @@
-// Place your settings in this file to overwrite the default settings
 {
-    "trailing-spaces.trimOnSave": true,
-    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
     "editor.renderIndentGuides": false,
+<<<<<<< HEAD
     "window.zoomLevel": -2,
+=======
+>>>>>>> 081e96c7677d9668fe961fd83e28be273b93785f
     "Expecto.runDebug": true,
     "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",
     "editor.tabCompletion": true,
-    "files.exclude": {
-        "**/packages": true,
-        "**/node_modules/": true,
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true
-    },
-    "window.newWindowDimensions": "inherit",
+    "editor.tabSize": 2,
     "editor.wordWrap": "on",
-    "editor.rulers": [
-        120
-    ],
-    "editor.formatOnSave": true,
-    "gitlens.keymap": "chorded",
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "**/packages": true,
-        "**/paket-files": true,
-        "**/build": true,
-        "**/bin": true,
-        "**/obj": true,
-        "**/.git": true
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/CVS": true,
+        "**/node_modules/": true,
+        "**/packages": true
     },
-    "prettier.eslintIntegration": true,
-    "javascript.validate.enable": false,
-    "window.openFoldersInNewWindow": "on",
-    "window.restoreWindows": "all",
-    "gitlens.gitExplorer.files.layout": "auto",
-    "git.enableSmartCommit": true,
-    "vsicons.dontShowNewVersionMessage": true,
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -50,7 +29,33 @@
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
     },
+<<<<<<< HEAD
     "gitlens.historyExplorer.enabled": true,
     "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/",
     "[scala]": {}
+=======
+    "gitlens.keymap": "chorded",
+    "gitlens.showWhatsNewAfterUpgrades": false,
+    "javascript.validate.enable": false,
+    "prettier.eslintIntegration": true,
+    "prettier.printWidth": 120,
+    "search.exclude": {
+        "**/.git": true,
+        "**/bin": true,
+        "**/bower_components": true,
+        "**/build": true,
+        "**/node_modules": true,
+        "**/obj": true,
+        "**/packages": true,
+        "**/paket-files": true
+    },
+    "trailing-spaces.trimOnSave": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "window.newWindowDimensions": "inherit",
+    "window.openFoldersInNewWindow": "on",
+    "window.zoomLevel": -1,
+    "files.associations": {
+        ".eslintrc": "jsonc"
+    }
+>>>>>>> 081e96c7677d9668fe961fd83e28be273b93785f
 }
