@@ -69,13 +69,23 @@
 (require 'auto-complete-setup (expand-file-name "configs/auto-complete-setup.el" user-emacs-directory))
 
 
+
+
 ;;; (depends-on "dired-details+")
 ; Fancier dired display
-(require 'dired-details+)
+; (require 'dired-details+)
+; (setq
+;   dired-details-hidden-string ""
+;   dired-use-ls-dired nil
+;)
+
+
+;;; (depends-on "ensime")
+; Scala intellisense
+(require 'ensime)
 (setq
-   dired-details-hidden-string ""
-   dired-use-ls-dired nil
-)
+  ensime-sbt-command "/usr/bin/sbt"
+  sbt:program-name "/usr/bin/sbt")
 
 ;;; (depends-on "fill-column-indicator")
 ;;; (require 'fill-column-indicator)

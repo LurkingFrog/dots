@@ -36,5 +36,23 @@
 			"/// </Summary>"
 		],
 		"description": "DocString Template"
+	},
+	"Chiron To/From Json": {
+		"prefix": "chiron",
+		"body": [
+			"static member ToJson (this: $1): Chiron.Functional.Json<unit>=",
+			"  Chiron.Builder.json {",
+			"    do! Chiron.Mapping.Json.write \"\" this.",
+			"  }",
+			"",
+			"static member FromJson (_:$1): Chiron.Functional.Json<$1>=",
+			"  Chiron.Builder.json {",
+			"    let!  = Chiron.Mapping.Json.read \"\"",
+			"",
+			"    return {",
+			"",
+			"    }",
+			"  }"
+		]
 	}
 }
