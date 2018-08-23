@@ -25,13 +25,13 @@ function precmd {
 
     ###
     # Truncate the path if it's too long.
-    
+
     PR_FILLBAR=""
     PR_PWDLEN=""
-    
+
     local promptsize=${#${(%):---(%n@%m:%l)---()--}}
     local pwdsize=${#${(%):-%~}}
-    
+
     if [[ "$promptsize + $pwdsize" -gt $TERMWIDTH ]]; then
 	    ((PR_PWDLEN=$TERMWIDTH - $promptsize))
     else
@@ -75,7 +75,7 @@ setprompt () {
 
     ###
     # See if we can use extended characters to look nicer.
-    
+
     typeset -A altchar
     set -A altchar ${(s..)terminfo[acsc]}
     PR_SET_CHARSET="%{$terminfo[enacs]%}"
@@ -87,23 +87,24 @@ setprompt () {
     PR_LRCORNER=${altchar[j]:--}
     PR_URCORNER=${altchar[k]:--}
 
-    
+
     ###
     # Decide if we need to set titlebar text.
-    
+
+    # %n@%m  = user @ host
     case $TERM in
 	xterm*)
-    PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
+        PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%~ | %n@%m | ${COLUMNS}x${LINES} | %y\a%}'
         ;;
 	screen)
-	    PR_TITLEBAR=$'%{\e_screen \005 (\005t) | %(!.-=[ROOT]=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\e\\%}'
+	    PR_TITLEBAR=$'%{\e_screen \005 (\005t) | %(!.-=[ROOT]=- | .)%~ | %n@%m | ${COLUMNS}x${LINES} | %y\e\\%}'
 	        ;;
 		*)
 		    PR_TITLEBAR=''
 		        ;;
     esac
-    
-    
+
+
     ###
     # Decide whether to set a screen title
     if [[ "$TERM" == "screen" ]]; then
@@ -111,15 +112,15 @@ setprompt () {
     else
 	PR_STITLE=''
     fi
-    
-    
+
+
     ###
     # APM detection
-    
+
 
     PR_APM=''
-    
-    
+
+
     ###
     # Finally, the prompt.
 

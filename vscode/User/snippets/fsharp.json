@@ -37,6 +37,7 @@
 		],
 		"description": "DocString Template"
 	},
+	/// Chiron snippets
 	"Chiron To/From Json": {
 		"prefix": "chiron",
 		"body": [
@@ -53,6 +54,15 @@
 			"",
 			"    }",
 			"  }"
+		]
+	},
+	"Chiron liftToJson": {
+		"prefix": "chiron_liftToJson",
+		"description": "A helper function used to create ToJsons for Discriminated Unions",
+		"body": [
+			"let inline liftToJson (value: Chiron.Json): Chiron.Functional.Json<unit>=",
+			"  match value |> Chiron.Functional.Json.init () with"
+			// "	 | jsonResult, _ -> (fun _ -> jsonResult, value)"
 		]
 	}
 }

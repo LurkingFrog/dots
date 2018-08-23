@@ -15,11 +15,9 @@
 [plugins]
 [profiles]
   [[default]]
-    background_image = None
-    copy_on_selection = True
+    cursor_color = "#aaaaaa"
     font = DejaVu Sans Mono 10
-    scroll_on_output = False
     scrollback_infinite = True
     scrollback_lines = 50000
     use_system_font = False
-    word_chars = "-A-Za-z0-9,./?%&#:_~"
+    word_chars = "-A-Za-z0-9,./?%&#:_~@"
