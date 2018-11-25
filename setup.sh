@@ -18,7 +18,7 @@ sudo chmod -R 777 /opt
 
 # Get the usual installs
 sudo apt-get update
-sudo apt-get install -y git emacs zsh curl ruby-sass flake8 terminator sqlitebrowser
+sudo apt-get install -y git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc
 if [ ! -d ~/dots/git ]; then
     cd ~
     # Read Only
@@ -76,11 +76,19 @@ sudo apt-get install -y nodejs
 #curl https://www.npmjs.com/install.sh | sudo sh
 #sudo npm cache clean -f
 
-git clone https://github.com/npm/npm.git /tmp/npm
-cd /tmp/npm
-sudo make install
-sudo npm -d install -g ~/dots/node/
-sudo n stable
+# TODO: Test using nvm instead of direct NPM https://github.com/creationix/nvm
+export NVM_DIR="$HOME/.nvm" && (
+  git clone https://github.com/creationix/nvm.git "$NVM_DIR"
+  cd "$NVM_DIR"
+  git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+) && \. "$NVM_DIR/nvm.sh"
+nvm install node
+
+# git clone https://github.com/npm/npm.git /tmp/npm
+# cd /tmp/npm
+# sudo make install
+# sudo npm -d install -g ~/dots/node/
+# sudo n stable
 
 
 # add Docker tools

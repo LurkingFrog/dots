@@ -2,7 +2,7 @@
   "editor.formatOnSave": true,
   "editor.renderIndentGuides": false,
   "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",
-  "editor.tabCompletion": true,
+  "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "files.exclude": {
@@ -50,13 +50,11 @@
   "files.associations": {
     ".eslintrc": "jsonc"
   },
-  "scalaLanguageServer.logLevel": "INFO",
-  "scalaLanguageServer.heapSize": "2048M",
+  // "scalaLanguageServer.logLevel": "INFO",
+  // "scalaLanguageServer.heapSize": "2048M",
   "breadcrumbs.enabled": false,
   "editor.renderControlCharacters": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.minimap.enabled": false,
-  "editor.rulers": [
-    110
-  ]
+  "editor.rulers": [110]
 }

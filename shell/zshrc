@@ -3,6 +3,7 @@
 # Add JAVA_HOME
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
+
 # Set the path
 PATH=/home/dfogelson/bin
 PATH=$PATH:/home/dfogelson/.cargo/bin
@@ -15,7 +16,12 @@ PATH=$PATH:/bin
 PATH=$PATH:/opt/cask/bin
 
 
+# Add javascript/node's home and load
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 # Node keeps moving this crap around and losing by clobal binaries
+# Maybe this is fixed by using nvm
 if [ -e /home/dfogelson/dots/node/node_modules/.bin ]
 then
   PATH=$PATH:/home/dfogelson/dots/node/node_modules/.bin
@@ -25,7 +31,6 @@ if [ -e /usr/lib/node_modules/DotsGlobalPackages/node_modules/.bin ]
 then
   PATH=$PATH:/usr/lib/node_modules/DotsGlobalPackages/node_modules/.bin
 fi
-
 
 
 export PATH=$PATH
