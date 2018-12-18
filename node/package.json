@@ -5,6 +5,7 @@
   "license": "None",
   "dependencies": {
     "babel-eslint": "^10.0.1",
+    "bs-platform": "^4.0.7",
     "diff-so-fancy": "^1.2.0",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",

@@ -1,5 +1,6 @@
 [user]
-        email = git@landfillinc.com
+        email = dfogelson@fishheadlabs.com
+	name = Dave Fogelson
 [push]
         default = upstream
 [grep]

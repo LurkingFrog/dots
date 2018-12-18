@@ -17,6 +17,11 @@
     "body": ["// @flow"],
     "description": "Add a flow comment to a js file"
   },
+  "Flow Type": {
+    "prefix": "fty",
+    "body": ["export type $1 = {|$2|};"],
+    "description": "Add a new data type for flow"
+  },
   "React Component class": {
     "prefix": "rcls",
     "body": [
@@ -35,11 +40,12 @@
       "  }",
       "}",
       "",
-      "let Styled$1 = styled(Unstyled$1)`",
+      "let Connected$1 = connect(null, null)(Unstyled$1);",
+      "",
+      "const $1 = styled(Connected$1)`",
       "",
       "`;",
-      "",
-      "let $1 = connect(null, null)(Styled$1);"
+      ""
     ],
     "description": "Create a new react component stub"
   }
