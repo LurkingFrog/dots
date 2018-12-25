@@ -18,7 +18,9 @@ sudo chmod -R 777 /opt
 
 # Get the usual installs
 sudo apt-get update
-sudo apt-get install -y git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc
+sudo apt-get install -y \
+    git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server pkg-config
+
 if [ ! -d ~/dots/git ]; then
     cd ~
     # Read Only
@@ -142,6 +144,7 @@ done
 
 # Lets add Rust while I'm at it
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
+cargo install cargo-edit
 
 
 # And Docker
