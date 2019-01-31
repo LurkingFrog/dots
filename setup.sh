@@ -17,9 +17,11 @@ sudo chmod -R 777 /opt
 
 
 # Get the usual installs
+sudo apt-add-repository multiverse
 sudo apt update
 sudo apt install -y \
-    git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server pkg-config
+    git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server pkg-config \
+    unrar
 
 if [ ! -d ~/dots/git ]; then
     cd ~
