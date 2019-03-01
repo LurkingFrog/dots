@@ -46,7 +46,7 @@
   "vsicons.dontShowNewVersionMessage": true,
   "window.newWindowDimensions": "inherit",
   "window.openFoldersInNewWindow": "on",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "files.associations": {
     ".eslintrc": "jsonc",
     "*.json": "jsonc"
