@@ -1,7 +1,15 @@
 # dots
+
 My usual environment configs
 
-INSTALLATION
-------------
+## INSTALLATION
 
-curl -fsSL https://raw.githubusercontent.com/LurkingFrog/dots/master/setup.sh | sh
+1. Get rid of the need for a sudo password:
+
+   run "sudo visudo"
+   change "%sudo ALL=(ALL:ALL) ALL"
+   to "%sudo ALL=(ALL:ALL) NOPASSWD: ALL"
+
+2. Add ssh key from other computer/vm (.ssh folder)
+
+3. cd ~ && wget https://raw.githubusercontent.com/LurkingFrog/dots/master/setup.sh && sh setup.sh | tee >> setup_output.log

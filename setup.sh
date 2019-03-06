@@ -25,11 +25,15 @@ sudo apt install -y \
 
 if [ ! -d ~/dots/git ]; then
     cd ~
-    # Read Only
-    #git clone http://github.com/lurkingfrog/dots
+    if [ -d ~/.ssh/id_rsa ]; then
+        # Requires ssh key, but can push edits
+        git clone git@github.com:LurkingFrog/dots
 
-    # Requires ssh key, but can push edits
-    git clone git@github.com:LurkingFrog/dots
+    else
+        # Read Only
+        echo -e "WARNING: Cloned dots using HTTP. Please update the upstream for editing"
+        git clone http://github.com/lurkingfrog/dots
+    fi;
 
 else
     echo "Already cloned dots from git"
@@ -73,6 +77,7 @@ ln -s ~/dots/node/tern-config ~/.tern-config
 
 
 # Setup LTR version of node using NVM (with modules for emacs' flycheck)
+mkdir -p "${HOME}/.nvm"
 export NVM_DIR="${HOME}/.nvm"
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -94,11 +99,11 @@ sudo apt-get install -y yarn
 # Add in the scss linter
 # sudo gem install scss_lint scss_lint_reporter_checkstyle
 
-# add Mono
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-echo "deb http://download.mono-project.com/repo/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/mono-official.list
-sudo apt-get update
-sudo apt-get install -y mono-devel
+# add Mono - Haven't touched this in a while, so why waste space/time with it now
+# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+# echo "deb http://download.mono-project.com/repo/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/mono-official.list
+# sudo apt-get update
+# sudo apt-get install -y mono-devel
 
 
 
@@ -131,16 +136,4 @@ done
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
 cargo install cargo-edit
 
-
-# And Docker
-sudo apt-get install -y \
-    linux-image-extra-$(uname -r) \
-    linux-image-extra-virtual
-
-sudo apt-get update
-
-curl -fsSL https://get.docker.com/ | sudo sh
-
-sudo apt-get install -y docker-compose
-sudo usermod -aG docker dfogelson
 
