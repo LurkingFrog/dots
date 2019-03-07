@@ -20,7 +20,7 @@
       "  let component = ReasonReact.statelessComponent(\"$1\");",
       "  let make = (_children) => {",
       "    ...component,",
-      "    render: _self => <div className=\"$1\"/>{\"Placeholder\" |> ReasonReact.string}</div>",
+      "    render: _self => <div className=\"$1\">{\"Placeholder for $1\" |> ReasonReact.string}</div>",
       "  };",
       "};"
     ]
