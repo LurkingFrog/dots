@@ -22,7 +22,7 @@ PATH=$PATH:/opt/cask/bin
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-# Node keeps moving this crap around and losing by clobal binaries
+# Node keeps moving this crap around and losing by global binaries
 # Maybe this is fixed by using nvm
 if [ -e /home/dfogelson/dots/node/node_modules/.bin ]
 then
@@ -43,7 +43,7 @@ export PATH=$PATH
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="frog"
 
-plugins=(git ubuntu command-not-found dircycle git-extras taskworrior pip node npm nvm pep8 grunt gradle docker docker-compose cp python pylint rust rsync kubectl sbt scala zsh_reload)
+plugins=(git ubuntu command-not-found dircycle git-extras taskworrior pip node npm nvm pep8 grunt gradle docker docker-compose cp python pylint rust rsync kubectl zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 

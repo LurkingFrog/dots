@@ -62,5 +62,6 @@
   "gitlens.views.fileHistory.enabled": true,
   "gitlens.views.lineHistory.enabled": true,
   "window.restoreWindows": "all",
-  "rust-client.updateOnStartup": true
+  "rust-client.updateOnStartup": true,
+  "workbench.iconTheme": "vscode-icons"
 }

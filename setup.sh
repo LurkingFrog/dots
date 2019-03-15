@@ -57,6 +57,10 @@ ln -s ~/dots/oh-my-zsh/frog.zsh-theme ~/.oh-my-zsh/themes/frog.zsh-theme
 mkdir -p ~/.config/terminator
 ln -s ~/dots/shell/terminator/config ~/.config/terminator
 
+# And update the css used for the terminator display
+mkdir -p ~/.config/gtk-3.0
+ln -s ~/dots/shell/gtk-3.0/gtk.css ~/.config/gtk-3.0
+
 
 # Setup emacs
 cd /opt
@@ -83,29 +87,24 @@ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh |
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install --lts
 
-# add Docker tools
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
-sudo apt-get install docker-ce docker-compose
-sudo usermod -aG docker $(whoami)
-
 # Use Yarn (Javascript)
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 deb https://dl.yarnpkg.com/debian/ stable main
 
 sudo apt-get install -y yarn
 
-# Add in the scss linter
-# sudo gem install scss_lint scss_lint_reporter_checkstyle
 
-# add Mono - Haven't touched this in a while, so why waste space/time with it now
-# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-# echo "deb http://download.mono-project.com/repo/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/mono-official.list
-# sudo apt-get update
-# sudo apt-get install -y mono-devel
+# Install the global node modules
+cd ~/dots/node
+npm install -D
 
-
+# add Docker tools
+cd /tmp
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-compose
+sudo usermod -aG docker $(whoami)
 
 # VSCode setup
 cd /tmp
@@ -132,8 +131,16 @@ for x in `ls -d -1 ~/dots/vscode/User/snippets/*json`; do \
 done
 
 
-# Lets add Rust while I'm at it
-curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain beta
+# Install Rust
+curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain stable
 cargo install cargo-edit
 
 
+# Add in the scss linter
+# sudo gem install scss_lint scss_lint_reporter_checkstyle
+
+# add Mono - Haven't touched this in a while, so why waste space/time with it now
+# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+# echo "deb http://download.mono-project.com/repo/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/mono-official.list
+# sudo apt-get update
+# sudo apt-get install -y mono-devel
