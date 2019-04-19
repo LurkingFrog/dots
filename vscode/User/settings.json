@@ -1,7 +1,7 @@
 {
   "editor.formatOnSave": true,
   "editor.renderIndentGuides": false,
-  "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",
+  // "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
@@ -24,9 +24,9 @@
     "suppressResultsExplorerNotice": false,
     "suppressShowKeyBindingsNotice": true
   },
-  "gitlens.historyExplorer.enabled": true,
-  "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/",
-  "[scala]": {},
+  // "gitlens.historyExplorer.enabled": true,
+  // "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/",
+  // "[scala]": {},
   "gitlens.keymap": "chorded",
   "gitlens.showWhatsNewAfterUpgrades": false,
   "javascript.validate.enable": false,
@@ -43,7 +43,6 @@
     "**/paket-files": true
   },
   "trailing-spaces.trimOnSave": true,
-  "vsicons.dontShowNewVersionMessage": true,
   "window.newWindowDimensions": "inherit",
   "window.openFoldersInNewWindow": "on",
   "window.zoomLevel": -1,
@@ -63,5 +62,31 @@
   "gitlens.views.lineHistory.enabled": true,
   "window.restoreWindows": "all",
   "rust-client.updateOnStartup": true,
-  "workbench.iconTheme": "vscode-icons"
+  "rust-client.revealOutputChannelOn": "error",
+  "auto-close-tag.activationOnLanguage": [
+    "xml",
+    "php",
+    "blade",
+    "ejs",
+    "jinja",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "plaintext",
+    "markdown",
+    "vue",
+    "liquid",
+    "erb",
+    "lang-cfml",
+    "cfml",
+    "HTML (Eex)",
+    "reason"
+  ],
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vsicons.dontShowNewVersionMessage": true,
+  "rust.all_features": true,
+  "rust-client.trace.server": "messages"
 }

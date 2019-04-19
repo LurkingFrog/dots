@@ -21,7 +21,7 @@ sudo apt-add-repository multiverse
 sudo apt update
 sudo apt install -y \
     git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server pkg-config \
-    unrar
+    unrar inotify-tools
 
 if [ ! -d ~/dots/git ]; then
     cd ~

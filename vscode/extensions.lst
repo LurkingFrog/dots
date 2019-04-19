@@ -1,4 +1,5 @@
 bungcip.better-toml
+ckolkman.vscode-postgres
 Compulim.compulim-vscode-closetag
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
@@ -11,6 +12,7 @@ eg2.vscode-npm-script
 eriklynd.json-tools
 esbenp.prettier-vscode
 fknop.vscode-npm
+formulahendry.auto-close-tag
 formulahendry.docker-explorer
 gcazaciuc.vscode-flow-ide
 humao.rest-client
@@ -20,14 +22,17 @@ joshpeng.sublime-babel-vscode
 jpoissonnier.vscode-styled-components
 michelemelluso.code-beautifier
 msjsdiag.debugger-for-chrome
+ms-mssql.mssql
 PeterJausovec.vscode-docker
 richie5um2.vscode-filter-json
 richie5um2.vscode-sort-json
 richie5um2.vscode-statusbar-json-path
 rkwan94.vscode-emacs-improved
-robertohuertasm.vscode-icons
 rust-lang.rust
 shardulm94.trailing-spaces
+shinichi-takii.sql-bigquery
 spywhere.guides
+vscode-icons-team.vscode-icons
 waderyan.gitblame
+yzhang.markdown-all-in-one
 Zignd.html-css-class-completion
