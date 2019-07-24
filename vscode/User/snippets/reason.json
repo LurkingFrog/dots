@@ -24,5 +24,10 @@
       "  };",
       "};"
     ]
+  },
+  "ReasonReact string": {
+    "prefix": "rstr",
+    "description": "A shortcut for ReasonReact.string",
+    "body": ["{\"$1\" |> ReasonReact.string}"]
   }
 }

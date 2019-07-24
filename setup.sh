@@ -91,7 +91,7 @@ nvm install --lts
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 deb https://dl.yarnpkg.com/debian/ stable main
 
-sudo apt-get install -y yarn
+sudo apt install -y yarn
 
 
 # Install the global node modules
@@ -134,6 +134,7 @@ done
 # Install Rust
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain stable
 cargo install cargo-edit
+cargo install cargo-expand
 
 
 # Add in the scss linter

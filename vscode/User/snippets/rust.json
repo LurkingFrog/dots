@@ -1,0 +1,9 @@
+{
+  "println debug statement": {
+    "prefix": "dbg",
+    "description": "The quick and dirty println for Debug derived objects",
+    "body": [
+      "println!(\"$1:\\n{:#?}\", $1);"
+    ]
+  }
+}

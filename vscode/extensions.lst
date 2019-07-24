@@ -1,3 +1,4 @@
+aaron-bond.better-comments
 bungcip.better-toml
 ckolkman.vscode-postgres
 Compulim.compulim-vscode-closetag
@@ -18,12 +19,17 @@ gcazaciuc.vscode-flow-ide
 humao.rest-client
 jaredly.reason-vscode
 jeremyrajan.webpack
+johnpapa.vscode-peacock
 joshpeng.sublime-babel-vscode
 jpoissonnier.vscode-styled-components
+karigari.chat
 michelemelluso.code-beautifier
+ms-azuretools.vscode-docker
 msjsdiag.debugger-for-chrome
 ms-mssql.mssql
-PeterJausovec.vscode-docker
+ms-vsliveshare.vsliveshare
+ms-vsliveshare.vsliveshare-audio
+ms-vsliveshare.vsliveshare-pack
 richie5um2.vscode-filter-json
 richie5um2.vscode-sort-json
 richie5um2.vscode-statusbar-json-path
