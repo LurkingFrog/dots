@@ -103,7 +103,7 @@ cd /tmp
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
-sudo apt-get install docker-ce docker-compose
+sudo apt-get install -y docker-ce docker-compose
 sudo usermod -aG docker $(whoami)
 
 # VSCode setup
@@ -125,6 +125,7 @@ ln -s ~/dots/vscode/User/extensions.json ~/dots/.vscode
 ln -s ~/dots/vscode/User/keybindings.json ~/.config/Code\ -\ Insiders/User
 
 # And link all the snippets
+mkdir -p ~/.config/Code\ -\ Insiders/User/snippets/
 for x in `ls -d -1 ~/dots/vscode/User/snippets/*json`; do \
     echo  $x;\
     ln -s $x ~/.config/Code\ -\ Insiders/User/snippets/;\
@@ -133,8 +134,9 @@ done
 
 # Install Rust
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain stable
-cargo install cargo-edit
-cargo install cargo-expand
+~/.cargo/bin/cargo install cargo-edit
+~/.cargo/bin/cargo install cargo-expand
+~/.cargo/bin/rustup component add clippy rls rust-analysis rust-src
 
 
 # Add in the scss linter

@@ -62,7 +62,6 @@
   "gitlens.views.lineHistory.enabled": true,
   "window.restoreWindows": "all",
   "rust-client.updateOnStartup": true,
-  "rust-client.revealOutputChannelOn": "info",
   "auto-close-tag.activationOnLanguage": [
     "xml",
     "php",
