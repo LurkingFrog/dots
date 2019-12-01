@@ -132,11 +132,12 @@ for x in `ls -d -1 ~/dots/vscode/User/snippets/*json`; do \
 done
 
 
-# Install Rust
+# Install Rust and some associated features
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain stable
 ~/.cargo/bin/cargo install cargo-edit
 ~/.cargo/bin/cargo install cargo-expand
 ~/.cargo/bin/rustup component add clippy rls rust-analysis rust-src
+~/.cargo/bin/cargo install diesel_cli --no-default-features --features postgres --verbose
 
 
 # Add in the scss linter
