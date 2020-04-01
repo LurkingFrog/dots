@@ -137,6 +137,10 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain stable
 ~/.cargo/bin/cargo install cargo-edit
 ~/.cargo/bin/cargo install cargo-expand
 ~/.cargo/bin/rustup component add clippy rls rust-analysis rust-src
+
+# Required for diesel_cli
+sudo apt install libpq-dev
+sudo ln -s /usr/lib/x86_64-linux-gnu/libzmq.so.5 /usr/lib/x86_64-linux-gnu/libpq.so
 ~/.cargo/bin/cargo install diesel_cli --no-default-features --features postgres --verbose
 
 
