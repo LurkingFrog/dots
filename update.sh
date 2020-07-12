@@ -13,7 +13,7 @@ echo -e "\n\tUpdating NPM\n"
 # Global - for some reason this is different than the local one I install packages from
 nvm install --latest-npm
 cd ~/dots/node
-nvm install --latest-npm
+nvm alias default node
 
 echo -e "\nUpgrading node modules"
 ncu -u -l info

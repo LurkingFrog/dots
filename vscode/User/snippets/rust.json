@@ -1,9 +1,39 @@
 {
-  "println debug statement": {
+  "My most common derive statement": {
+    "prefix": "drve",
+    "description": "The usual struct/enum derives Copy, Debug, Serialize, Deserialize",
+    "body": ["#[derive(Debug, Clone, Serialize, Deserialize)]"]
+  },
+  "log debug statement": {
     "prefix": "dbg",
-    "description": "The quick and dirty println for Debug derived objects",
+    "description": "The quick and dirty Debug logging derived objects",
+    "body": ["log::debug!(\"$1:\\n{:#?}\", $1);"]
+  },
+  "Subpar Rename": {
+    "prefix": "spr",
+    "description": "Rename derivation for subpar fields",
+    "body": ["#[subpar(rename = \"$1\")]"]
+  },
+  "Serde Rename": {
+    "prefix": "sre",
+    "description": "Rename derivation for serde fields",
+    "body": ["#[serde(rename = \"$1\")]"]
+  },
+  "Error From": {
+    "prefix": "from error",
+    "description": "Impl to convert from one type of error to another",
     "body": [
-      "println!(\"$1:\\n{:#?}\", $1);"
+      "impl From<$1> for Error {",
+      "  fn from(err: $1) -> Error {",
+      "    Error::new(ErrorKind::$2, err.to_string())",
+      "      .add_original_type(\"$1\".to_string())",
+      "  }",
+      "}"
     ]
+  },
+  "To String": {
+    "prefix": "\".to",
+    "description": "The usual .to_string()",
+    "body": ["\".to_string()"]
   }
 }

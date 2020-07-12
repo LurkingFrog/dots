@@ -145,5 +145,17 @@
     }
   ],
   "workbench.startupEditor": "newUntitledFile",
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "explorer.confirmDelete": false,
+  "workbench.editor.labelFormat": "short",
+  "todo-tree.tree.showScanModeButton": false,
+  "todo-tree.general.tags": [
+    "XXX",
+    "TODO",
+    "RESEARCH",
+    "HACK",
+    "FIXME",
+    "BUG",
+    "THINK"
+  ]
 }
