@@ -149,13 +149,7 @@
   "explorer.confirmDelete": false,
   "workbench.editor.labelFormat": "short",
   "todo-tree.tree.showScanModeButton": false,
-  "todo-tree.general.tags": [
-    "XXX",
-    "TODO",
-    "RESEARCH",
-    "HACK",
-    "FIXME",
-    "BUG",
-    "THINK"
-  ]
+  "todo-tree.general.tags": ["XXX", "TODO", "RESEARCH", "HACK", "FIXME", "BUG", "THINK"],
+  "module-templates.engine": "handlebars",
+  "module-templates.templates": []
 }

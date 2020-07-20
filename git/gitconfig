@@ -8,7 +8,7 @@
         lineNumber = true
 [alias]
         g = grep --break --heading --line-number --color
-        dc = diff --color
+        dc = diff --color --ignore-all-space
         dn = diff --name-only
         lp = log -p --color
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
