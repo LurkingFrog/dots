@@ -151,5 +151,27 @@
   "todo-tree.tree.showScanModeButton": false,
   "todo-tree.general.tags": ["XXX", "TODO", "RESEARCH", "HACK", "FIXME", "BUG", "THINK"],
   "module-templates.engine": "handlebars",
-  "module-templates.templates": []
+  "module-templates.templates": [],
+  "cSpell.userWords": [
+    "adhd",
+    "descendents",
+    "executables",
+    "fooding",
+    "github",
+    "github's",
+    "microservice",
+    "microservices",
+    "posix",
+    "queryable",
+    "routable",
+    "rustc",
+    "rustfmt",
+    "rustup",
+    "semver",
+    "serde",
+    "struct",
+    "structs",
+    "upsert",
+    "uuid"
+  ]
 }

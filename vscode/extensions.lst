@@ -1,5 +1,6 @@
 aaron-bond.better-comments
 asbjornh.vscode-module-templates
+ban.spellright
 bungcip.better-toml
 ckolkman.vscode-postgres
 CoenraadS.bracket-pair-colorizer-2
@@ -42,6 +43,7 @@ rust-lang.rust
 shardulm94.trailing-spaces
 shinichi-takii.sql-bigquery
 spywhere.guides
+streetsidesoftware.code-spell-checker
 vadimcn.vscode-lldb
 vscode-icons-team.vscode-icons
 waderyan.gitblame

@@ -1,8 +1,10 @@
 {
   "My most common derive statement": {
     "prefix": "drve",
-    "description": "The usual struct/enum derives Copy, Debug, Serialize, Deserialize",
-    "body": ["#[derive(Debug, Clone, Serialize, Deserialize)]"]
+    "description": "The usual struct/enum derives recommended by C-Common-Traits + serde serialization",
+    "body": [
+      "#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Display, Default, Serialize, Deserialize)]"
+    ]
   },
   "log debug statement": {
     "prefix": "dbg",
@@ -35,5 +37,46 @@
     "prefix": "\".to",
     "description": "The usual .to_string()",
     "body": ["\".to_string()"]
+  },
+  "New Struct": {
+    "prefix": "struct",
+    "description": "Create a struct will all the standard derives",
+    "body": [
+      "#[derive(",
+      "    Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default, Serialize, Deserialize,",
+      ")]",
+      "pub struct $1 {}",
+      "",
+      "impl std::fmt::Display for $1 {",
+      "    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {",
+      "        write!(f, \"{:#?}\", self)",
+      "    }",
+      "}",
+      "",
+      "impl $1 {}",
+      ""
+    ]
+  },
+  "New Enum": {
+    "prefix": "enum",
+    "description": "Create a new enumeration",
+    "body": [
+      "/// ",
+      "#[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Serialize, Deserialize)]",
+      "pub enum $1 {",
+      "",
+      "}",
+      "",
+      "impl Default for $1 {",
+      "  fn default() -> $1 {",
+      "    unimplemented!(\"Default is not implemented for $1\")",
+      "  }",
+      "}"
+    ]
+  },
+  "New Function": {
+    "prefix": "fn ",
+    "description": "Create an unimplemented function",
+    "body": ["fn $1 ($2) -> Result<$3> {", "    unimplemented!(\"$1 is not implemented yet", "}", ""]
   }
 }
