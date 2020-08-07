@@ -154,15 +154,21 @@
   "module-templates.templates": [],
   "cSpell.userWords": [
     "adhd",
+    "adhd devs",
     "descendents",
+    "devs",
     "executables",
     "fooding",
     "github",
     "github's",
+    "gmail",
     "microservice",
     "microservices",
     "posix",
+    "postgres",
     "queryable",
+    "replicant",
+    "replicants",
     "routable",
     "rustc",
     "rustfmt",
@@ -173,5 +179,14 @@
     "structs",
     "upsert",
     "uuid"
+  ],
+  "cSpell.allowCompoundWords": true,
+  "cSpell.ignorePaths": [
+    "**/package-lock.json",
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/objects/**",
+    ".vscode",
+    "**/target"
   ]
 }

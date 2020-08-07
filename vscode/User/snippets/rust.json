@@ -77,6 +77,26 @@
   "New Function": {
     "prefix": "fn ",
     "description": "Create an unimplemented function",
-    "body": ["fn $1 ($2) -> Result<$3> {", "    unimplemented!(\"$1 is not implemented yet", "}", ""]
+    "body": ["fn $1($2) -> Result<$3> {", "    unimplemented!(\"'$1' is not implemented yet\")", "}", ""]
+  },
+  "Unimplemented": {
+    "prefix": "unimp",
+    "description": "Add an unimplemented command with a better print statement",
+    "body": "unimplemented!(\"'$1' still needs to be implemented\")"
+  },
+  "Header": {
+    "prefix": "header",
+    "description": "My Common header with imports",
+    "body": [
+      "//! $2",
+      "//!",
+      "//! $3",
+      "",
+      "use anyhow::{Context, Result}",
+      "use serde::{Deserialize, Serialize}",
+      "",
+      "use super::$1Error",
+      ""
+    ]
   }
 }

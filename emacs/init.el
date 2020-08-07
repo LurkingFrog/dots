@@ -82,10 +82,10 @@
 
 ;;; (depends-on "ensime")
 ; Scala intellisense
-(require 'ensime)
-(setq
-  ensime-sbt-command "/usr/bin/sbt"
-  sbt:program-name "/usr/bin/sbt")
+; (require 'ensime)
+;; (setq
+;;   ensime-sbt-command "/usr/bin/sbt"
+;;   sbt:program-name "/usr/bin/sbt")
 
 ;;; (depends-on "fill-column-indicator")
 ;;; (require 'fill-column-indicator)
