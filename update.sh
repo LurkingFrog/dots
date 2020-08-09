@@ -8,7 +8,11 @@ echo -e "\n\nUpdating installed modules --"
 
 # Update node modules
 # export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
-echo -e "\n\tUpdating NPM\n"
+echo -e "\n\tUpdating NVM/NPM\n"
+
+# Start up NVM
+NVM_DIR="${HOME}/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Global - for some reason this is different than the local one I install packages from
 nvm install --latest-npm

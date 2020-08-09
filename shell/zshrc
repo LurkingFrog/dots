@@ -35,7 +35,7 @@ fi
 
 # Start up NVM
 export NVM_DIR="${HOME}/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
 
 export PATH=$PATH
 
@@ -57,14 +57,15 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=/usr/bin/emacs
 
 # This is just a pain so I'm aliasing it
-alias pip-update="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U"
 alias dux="du -h --max-depth=1"
+alias k8s_token="kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}' | kubectl -n kubernetes-dashboard describe secret"
+alias lsa="ls -alrth"
+alias pip-update="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U"
 alias sdux="sudo du -h --max-depth=1"
 alias shup="~/dots/update.sh"
-alias k8s_token="kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}' | kubectl -n kubernetes-dashboard describe secret"
 
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /home/dfogelson/.nvm/versions/node/v10.15.3/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/dfogelson/.nvm/versions/node/v10.15.3/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+# [[ -f /home/dfogelson/.nvm/versions/node/v10.15.3/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/dfogelson/.nvm/versions/node/v10.15.3/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
 
