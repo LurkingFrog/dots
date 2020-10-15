@@ -12,8 +12,7 @@
     "**/.svn": true,
     "**/*.bs.js": true,
     "**/CVS": true,
-    "**/node_modules/": true,
-    "**/packages": true
+    "**/node_modules/": true
   },
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false,

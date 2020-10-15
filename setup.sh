@@ -21,7 +21,7 @@ sudo apt-add-repository multiverse
 sudo apt update
 sudo apt install -y \
     git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server pkg-config \
-    unrar inotify-tools python3-pip net-tools
+    unrar inotify-tools python3-pip net-tools tree
 
 if [ ! -d ~/dots/git ]; then
     cd ~
@@ -53,6 +53,14 @@ cd ~
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 ln -s ~/dots/oh-my-zsh/frog.zsh-theme ~/.oh-my-zsh/themes/frog.zsh-theme
 
+# Link custom scripts to local
+sudo mkdir -p /usr/local/bin
+for x in `ls -d -1 ~/dots/bin/*`; do \
+    echo  "Moving '$x' to /usr/local/bin'"; \
+    chmod 755 $x; \
+    sudo ln -s $x /usr/local/bin/; \
+done
+
 # Use my normal terminal config (Currently using terminator)
 mkdir -p ~/.config/terminator
 ln -s ~/dots/shell/terminator/config ~/.config/terminator
@@ -60,6 +68,7 @@ ln -s ~/dots/shell/terminator/config ~/.config/terminator
 # And update the css used for the terminator display
 mkdir -p ~/.config/gtk-3.0
 ln -s ~/dots/shell/gtk-3.0/gtk.css ~/.config/gtk-3.0
+
 
 
 # Setup emacs

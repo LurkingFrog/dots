@@ -13,6 +13,7 @@
         lp = log -p --color
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
         psuh = push
+        tree = ! /usr/local/bin/tree.sh --prune $(git rev-parse --show-toplevel)
 [pager]
         diff = diff-so-fancy | less --tabs=4 -RFX
         show = diff-so-fancy | less --tabs=4 -RFX
