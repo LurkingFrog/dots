@@ -10,6 +10,7 @@
     "**/.git": true,
     "**/.hg": true,
     "**/.svn": true,
+    "**/*.bs.js": true,
     "**/CVS": true,
     "**/node_modules/": true,
     "**/packages": true
@@ -153,15 +154,24 @@
   "module-templates.engine": "handlebars",
   "module-templates.templates": [],
   "cSpell.userWords": [
+    "Eeyo",
+    "Fogelson",
+    "Opam",
     "adhd",
     "adhd devs",
+    "creds",
+    "denormalized",
     "descendents",
     "devs",
+    "dfogelson",
+    "dotenv",
+    "excel",
     "executables",
     "fooding",
     "github",
     "github's",
     "gmail",
+    "json",
     "microservice",
     "microservices",
     "posix",
@@ -177,8 +187,10 @@
     "serde",
     "struct",
     "structs",
+    "tablular",
     "upsert",
-    "uuid"
+    "uuid",
+    "wasm"
   ],
   "cSpell.allowCompoundWords": true,
   "cSpell.ignorePaths": [
@@ -188,5 +200,12 @@
     "**/.git/objects/**",
     ".vscode",
     "**/target"
-  ]
+  ],
+  "[rust]": {
+    "editor.defaultFormatter": "matklad.rust-analyzer"
+  },
+  "reason_language_server.show_debug_errors": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

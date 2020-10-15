@@ -14,20 +14,24 @@
   // }
   "ReasonReact Stateless Component": {
     "prefix": "rcls",
-    "description": "ReasonReact Stateless Component template",
+    "description": "ReasonReact Component template",
     "body": [
       "module $1 = {",
-      "  let component = ReasonReact.statelessComponent(\"$1\");",
-      "  let make = (_children) => {",
-      "    ...component,",
-      "    render: _self => <div className=\"$1\">{\"Placeholder for $1\" |> ReasonReact.string}</div>",
+      "  [@react.component]",
+      "  let make = () => {",
+      "    <div className=\"$1\">{\"Placeholder for $1\"->ReasonReact.string}</div>",
       "  };",
       "};"
     ]
   },
   "ReasonReact string": {
-    "prefix": "rstr",
+    "prefix": "\"rstr",
     "description": "A shortcut for ReasonReact.string",
-    "body": ["{\"$1\" |> ReasonReact.string}"]
+    "body": ["{\"$1\" -> ReasonReact.string}"]
+  },
+  "To String": {
+    "prefix": "\"->Reason",
+    "description": "Convert string to ReasonReact.string",
+    "body": ["\"->ReasonReact.string"]
   }
 }

@@ -1,9 +1,5 @@
 #! /bin/zsh
 
-# Add JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-
-
 # Set the path
 PATH=/home/dfogelson/bin
 PATH=$PATH:/home/dfogelson/.cargo/bin
@@ -15,6 +11,19 @@ PATH=$PATH::/sbin
 PATH=$PATH:/bin
 PATH=$PATH:/snap/bin
 PATH=$PATH:/opt/cask/bin
+
+
+# Opam recommended variables
+test -r /home/dfogelson/.opam/opam-init/init.zsh \
+    && . /home/dfogelson/.opam/opam-init/init.zsh > /dev/null 2> /dev/null \
+    || true
+
+# This is used in development docker containers
+export USER_ID=$(id -u):$(id -g)
+
+# Add JAVA_HOME
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
 
 
 # Add javascript/node's home and load
@@ -56,16 +65,24 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR=/usr/bin/emacs
 
-# This is just a pain so I'm aliasing it
-alias dux="du -h --max-depth=1"
+# Clean up exited docker containers
+alias dclr="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm"
+
+# List folder sizes in the current directory
+alias dux="du -h --max-depth=1 | sort -h"
+alias sdux="sudo du -h --max-depth=1 | sort -h"
+
+#
 alias k8s_token="kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}' | kubectl -n kubernetes-dashboard describe secret"
+
 alias lsa="ls -alrth"
+
 alias pip-update="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U"
-alias sdux="sudo du -h --max-depth=1"
+
+# Bring all the installed components up to date
 alias shup="~/dots/update.sh"
 
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 # [[ -f /home/dfogelson/.nvm/versions/node/v10.15.3/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/dfogelson/.nvm/versions/node/v10.15.3/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
-
