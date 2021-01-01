@@ -16,7 +16,8 @@ function tree-git-ignore {
                     | tr "\\n" "|")
       ignored_filter=".git|${filter: : -1}"
     fi
-    tree -I ${ignored_filter} "$@" $(git rev-parse --show-toplevel)
+    # FIXME: Add an option to use tree on a subdirectory if passed in as an argument
+    tree -I ${ignored_filter} "$@"
 }
 
-tree-git-ignore
+tree-git-ignore $@

@@ -2,6 +2,8 @@
 
 # This requires my usual git key if I want to edit
 
+RELEASE=$(lsb_release -cs)
+
 # TODO: Add self to sudoers
 # My DHCP doesn't seem to be supplying this line in /etc/network/interfaces
 # dns-nameservers 208.67.222.222 208.67.220.220 71.250.0.12
@@ -21,7 +23,7 @@ sudo apt-add-repository multiverse
 sudo apt update
 sudo apt install -y \
     git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server pkg-config \
-    unrar inotify-tools python3-pip net-tools tree
+    unrar inotify-tools python3-pip net-tools tree m4
 
 if [ ! -d ~/dots/git ]; then
     cd ~
@@ -69,8 +71,6 @@ ln -s ~/dots/shell/terminator/config ~/.config/terminator
 mkdir -p ~/.config/gtk-3.0
 ln -s ~/dots/shell/gtk-3.0/gtk.css ~/.config/gtk-3.0
 
-
-
 # Setup emacs
 cd /opt
 git clone https://github.com/cask/cask
@@ -110,10 +110,25 @@ npm install -D
 # add Docker tools
 cd /tmp
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $RELEASE stable"
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-compose
 sudo usermod -aG docker $(whoami)
+
+# Setup Opam (OCaml package manager)
+curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh | sh
+opam init
+
+# This is the version that ReasonML uses, so we set it as default before installing the other global packages
+opam switch create 4.06.1
+opam switch set 4.06.1
+
+# Install the OCaml Language server
+opam pin add -y ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git
+
+# Install the dune (project builder), merlin (), and reason reason (The coding language I'm using)
+opam install -y dune merlin reason
+
 
 # VSCode setup
 cd /tmp
@@ -151,6 +166,38 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain stable
 sudo apt install libpq-dev
 sudo ln -s /usr/lib/x86_64-linux-gnu/libzmq.so.5 /usr/lib/x86_64-linux-gnu/libpq.so
 ~/.cargo/bin/cargo install diesel_cli --no-default-features --features postgres --verbose
+
+# This is so we can have HTTPS enabled on nginx
+function setup_lets_encrypt() {
+    sudo snap install core
+    sudo snap refresh core
+    sudo snap install --classic certbot
+    sudo ln -s /snap/bin/certbot /usr/bin/certbot
+    sudo certbot --nginx
+
+    # To add a cert:
+    # sudo certbot run --nginx -n --agree-tos -m dfogelson@landfillinc.com --domains fhl.landfillinc.com
+    sudo certbot renew --nginx
+}
+
+# setup nginx
+function add_nginx() {
+    curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://nginx.org/packages/ubuntu/ $RELEASE nginx"
+    sudo apt-add-repository "deb-src https://nginx.org/packages/ubuntu/ $RELEASE nginx"
+    sudo apt update
+
+    sudo mkdir -p /etc/nginx
+    sudo rm /etc/nginx/nginx.conf
+    sudo ln -s ~/dots/nginx/nginx.conf /etc/nginx/nginx.conf
+
+    sudo apt install nginx
+}
+
+add_nginx
+setup_lets_encrypt
+
+
 
 
 # Add in the scss linter

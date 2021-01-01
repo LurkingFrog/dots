@@ -45,7 +45,6 @@
   "trailing-spaces.trimOnSave": true,
   "window.newWindowDimensions": "inherit",
   "window.openFoldersInNewWindow": "on",
-  "window.zoomLevel": 0,
   "files.associations": {
     ".eslintrc": "jsonc",
     "*.json": "jsonc"
@@ -164,6 +163,7 @@
     "devs",
     "dfogelson",
     "dotenv",
+    "enform",
     "excel",
     "executables",
     "fooding",
@@ -200,11 +200,27 @@
     ".vscode",
     "**/target"
   ],
-  "[rust]": {
-    "editor.defaultFormatter": "matklad.rust-analyzer"
-  },
-  "reason_language_server.show_debug_errors": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "dune.path": "/home/dfogelson/.opam/default/bin/dune",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[reason]": {
+    "editor.defaultFormatter": "jaredly.reason-vscode"
+  },
+  "terminal.integrated.environmentChangesIndicator": "on",
+  "reason_language_server.per_value_codelens": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["bsconfig.json"],
+      "url": "file:///home/dfogelson/Foundry/rescript-compiler/docs/docson/build-schema.json"
+    }
+  ],
+  "[ocaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "jaredly.reason-vscode"
   }
 }

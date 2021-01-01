@@ -1,5 +1,13 @@
 #! /bin/zsh
 
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+export HISTTIMEFORMAT="[%F %T] "
+setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
+
+
 # Set the path
 PATH=/home/dfogelson/bin
 PATH=$PATH:/home/dfogelson/.cargo/bin
@@ -52,6 +60,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="frog"
 
 plugins=( \
+  history \
   ubuntu cp rsync command-not-found dircycle taskwarrior zsh_reload \
   cargo rust \
   git  git-extras \

@@ -16,11 +16,9 @@
     "prefix": "rcls",
     "description": "ReasonReact Component template",
     "body": [
-      "module $1 = {",
-      "  [@react.component]",
-      "  let make = () => {",
-      "    <div className=\"$1\">{\"Placeholder for $1\"->ReasonReact.string}</div>",
-      "  };",
+      "[@react.component]",
+      "let make = () => {",
+      "  <div className=[%tw \"\"]>{\"Placeholder for $1\"->ReasonReact.string}</div>",
       "};"
     ]
   },
@@ -33,5 +31,20 @@
     "prefix": "\"->Reason",
     "description": "Convert string to ReasonReact.string",
     "body": ["\"->ReasonReact.string"]
+  },
+  "className": {
+    "prefix": "cn",
+    "description": "className with tailwind macro",
+    "body": ["className=[%tw \"$1\"]"]
+  },
+  "class regex": {
+    "prefix": "clsrgx",
+    "description": "The search/replace for replacing the raw html style class with Tailwinds",
+    "body": ["// Search: class=\"([-\\w\\s]+)\"", "// Replace: className=[%tw \"$1\"]"]
+  },
+  "Tailwind": {
+    "prefix": "tw",
+    "description": "Add a classname with tailwind",
+    "body": "className=[%tw \"$1\"]"
   }
 }
