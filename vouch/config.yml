@@ -1,0 +1,55 @@
+# vouch config
+# bare minimum to get vouch running with google
+
+vouch:
+  # logLevel: debug # VOUCH_LOGLEVEL
+  logLevel: debug
+
+  # testing: false - VOUCH_TESTING
+  # force all 302 redirects to be rendered as a webpage with a link
+  # if you're having problems, turn on testing
+  testing: false
+
+  listen: 0.0.0.0 # VOUCH_LISTEN
+  port: 9090 # VOUCH_PORT
+
+  domains:
+    - landfillinc.com
+    # - fishheadlabs.com
+
+  # set allowAllUsers: true to use Vouch Proxy to just accept anyone who can authenticate at Gitea
+  # allowAllUsers: true
+
+  whiteList:
+    - dfogelson@landfillinc.com
+    - fhl@landfillinc.com
+    - susan.fogelson.dvm@gmail.com
+    - susan.fogelson@fishheadlabs.com
+    - elayne.fogelson@gmail.com
+    - stephan.fogelson@gmail.com
+
+  cookie:
+    # allow the jwt/cookie to be set into http://yourdomain.com (defaults to true, requiring https://yourdomain.com)
+    secure: true
+    maxAge: 14400
+    # vouch.cookie.domain must be set when enabling allowAllUsers
+    domain: landfillinc.com
+
+  post_logout_redirect_uris:
+    # from https://accounts.google.com/.well-known/openid-configuration
+    - https://oauth2.googleapis.com/revoke
+
+# Google's credentials are provided in ~/.secure/google_oauth.env.
+oauth:
+  provider: google
+  # get credentials from...
+  # https://console.developers.google.com/apis/credentials
+  # client_id:
+  # client_secret:
+  callback_urls:
+    - https://vouch.landfillinc.com/auth
+#   preferredDomain: landfillinc.com.com # be careful with this option, it may conflict with chrome on Android
+#   # endpoints are set from https://godoc.org/golang.org/x/oauth2/google
+
+# scopes:
+#     - email

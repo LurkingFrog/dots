@@ -222,5 +222,6 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.defaultFormatter": "jaredly.reason-vscode"
-  }
+  },
+  "window.zoomLevel": -1
 }

@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  # Google based authentication in front of my nginx sites that do not have their own oauth2 integration
+  vouch:
+    image: voucher/vouch-proxy
+    restart: always
+    ports:
+      - target: 9090
+        published: 9090
+        protocol: tcp
+        mode: host
+    volumes:
+      - ~/dots/vouch:/config
+    env_file: ~/.secure/google_oauth2.env
+
+  opnsense:
+    image: fishhead_labs/foundry_dev
+    working_dir: /src
+    depends_on:
+      - postgres
+    command: bash -c "/src/watcher.sh "
+    volumes:
+      - ~/FishheadLabs/invoicer:/src
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 25432:5432

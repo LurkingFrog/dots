@@ -8,6 +8,14 @@ RELEASE=$(lsb_release -cs)
 # My DHCP doesn't seem to be supplying this line in /etc/network/interfaces
 # dns-nameservers 208.67.222.222 208.67.220.220 71.250.0.12
 
+
+# This is the only possibly interactive portion. If .ssh doesn't already exist, it needs to be pulled from
+# online. The online file that contains my keys also contains the other secure certs.
+function getEncryption() {
+    echo -e "Download my encryption keys and put them in place"
+}
+
+
 # Fix a common develop issue - not enough watches
 echo "fs.inotify.max_user_watches=524288" | sudo tee /etc/sysctl.conf
 sudo sysctl -p
@@ -193,6 +201,14 @@ function add_nginx() {
 
     sudo apt install nginx
 }
+
+# Setup an Oauth2 authenticator for nginx using vouch
+# https://github.com/vouch/vouch-proxy
+function start_vouch() {
+    sudo mkdir -p /etc/vouch
+
+}
+
 
 add_nginx
 setup_lets_encrypt
