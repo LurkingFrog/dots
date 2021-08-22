@@ -73,9 +73,12 @@ plugins=( \
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR=/usr/bin/emacs
+export BOOT_DC=($(command -v docker-compose) -f ~/dots/docker/boot/docker-compose.yml)
+
 
 # Clean up exited docker containers
 alias dclr="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm"
+alias dps="docker ps -a"
 
 # List folder sizes in the current directory
 alias dux="du -h --max-depth=1 | sort -h"

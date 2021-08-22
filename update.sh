@@ -1,5 +1,14 @@
 #! /usr/bin/env zsh
 
+WORKDIR=$(dirname $0:A)
+source $WORKDIR/conf.sh
+
+for x in ${CARGO}; do
+    local item=${=x}
+    ~/.cargo/bin/cargo install ${=item}
+done
+exit 1
+
 echo -e "\n\nUpdating installed modules --"
 
 # Update emacs (Primarily using VSCode so no need for this)
@@ -27,3 +36,5 @@ npm up -d
 
 echo -e "\n\tUpdating Rust"
 rustup update
+echo -e "\n\tUpdating Cargo Packages"
+cargo install ${CARGO}

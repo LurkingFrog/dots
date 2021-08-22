@@ -4,7 +4,7 @@
   // "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "wordWrapColumn",
   "files.exclude": {
     "**/.DS_Store": true,
     "**/.git": true,
@@ -20,9 +20,7 @@
     "suppressFileNotUnderSourceControlWarning": false,
     "suppressGitVersionWarning": false,
     "suppressLineUncommittedWarning": false,
-    "suppressNoRepositoryWarning": false,
-    "suppressResultsExplorerNotice": false,
-    "suppressShowKeyBindingsNotice": true
+    "suppressNoRepositoryWarning": false
   },
   // "gitlens.historyExplorer.enabled": true,
   // "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/",
@@ -31,7 +29,7 @@
   "gitlens.showWhatsNewAfterUpgrades": false,
   "javascript.validate.enable": false,
   "prettier.eslintIntegration": true,
-  "prettier.printWidth": 120,
+  "prettier.printWidth": 100,
   "search.exclude": {
     "**/.git": true,
     "**/bin": true,
@@ -54,13 +52,10 @@
   "breadcrumbs.enabled": false,
   "editor.renderControlCharacters": true,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.minimap.enabled": false,
-  "editor.rulers": [110],
+  "editor.rulers": [100],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "gitlens.views.fileHistory.enabled": true,
-  "gitlens.views.lineHistory.enabled": true,
   "window.restoreWindows": "all",
-  "rust-client.updateOnStartup": true,
   "auto-close-tag.activationOnLanguage": [
     "xml",
     "php",
@@ -148,18 +143,31 @@
   "explorer.confirmDelete": false,
   "workbench.editor.labelFormat": "short",
   "todo-tree.tree.showScanModeButton": false,
-  "todo-tree.general.tags": ["XXX", "TODO", "RESEARCH", "HACK", "FIXME", "BUG", "THINK"],
+  "todo-tree.general.tags": [
+    "XXX",
+    "TODO",
+    "RESEARCH",
+    "HACK",
+    "FIXME",
+    "BUG",
+    "THINK",
+    "[ ]",
+    "[x]"
+  ],
   "module-templates.engine": "handlebars",
   "module-templates.templates": [],
   "cSpell.userWords": [
+    "Commonize",
     "Eeyo",
     "Fogelson",
     "Opam",
     "adhd",
     "adhd devs",
+    "canonicalize",
     "creds",
     "denormalized",
     "descendents",
+    "deserializes",
     "devs",
     "dfogelson",
     "dotenv",
@@ -171,11 +179,14 @@
     "github's",
     "gmail",
     "json",
+    "kubernetes",
     "microservice",
     "microservices",
+    "onclick",
     "posix",
     "postgres",
     "queryable",
+    "recursed",
     "replicant",
     "replicants",
     "routable",
@@ -184,12 +195,15 @@
     "rustup",
     "semver",
     "serde",
+    "serializers",
     "struct",
     "structs",
     "tablular",
     "upsert",
     "uuid",
-    "wasm"
+    "wasm",
+    "webpack",
+    "yewzy"
   ],
   "cSpell.allowCompoundWords": true,
   "cSpell.ignorePaths": [
@@ -223,5 +237,32 @@
     "editor.insertSpaces": true,
     "editor.defaultFormatter": "jaredly.reason-vscode"
   },
-  "window.zoomLevel": -1
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "files.trimTrailingWhitespace": true,
+  "gitlens.blame.ignoreWhitespace": true,
+  "editor.minimap.maxColumn": 100,
+  "editor.wordWrapColumn": 100,
+  "editor.minimap.enabled": false,
+  "debug.console.wordWrap": false,
+  "rewrap.wrappingColumn": 100,
+  "rewrap.wholeComment": true,
+  "rewrap.autoWrap.enabled": true,
+  "rewrap.reformat": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "mssql.connections": [
+    {
+      "server": "{{put-server-name-here}}",
+      "database": "{{put-database-name-here}}",
+      "user": "{{put-username-here}}",
+      "password": "{{put-password-here}}"
+    }
+  ],
+  "grammarly.userWords": ["yewzy", "Yewzy"],
+  "grammarly.severity": {},
+  "grammarly.showExamples": true,
+  "grammarly.domain": "technical",
+  "rust-client.revealOutputChannelOn": "warn",
+  "rust.build_on_save": true
 }

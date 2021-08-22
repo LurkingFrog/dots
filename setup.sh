@@ -4,6 +4,10 @@
 
 RELEASE=$(lsb_release -cs)
 
+# Import some configuration variables
+WORKDIR=$(dirname $0:A)
+source $WORKDIR/conf.sh
+
 # TODO: Add self to sudoers
 # My DHCP doesn't seem to be supplying this line in /etc/network/interfaces
 # dns-nameservers 208.67.222.222 208.67.220.220 71.250.0.12
@@ -13,6 +17,7 @@ RELEASE=$(lsb_release -cs)
 # online. The online file that contains my keys also contains the other secure certs.
 function getEncryption() {
     echo -e "Download my encryption keys and put them in place"
+    ./bin/syncSecure.sh
 }
 
 
@@ -27,11 +32,11 @@ sudo chmod -R 777 /opt
 
 
 # Get the usual installs
-sudo apt-add-repository multiverse
+sudo apt-add-repository -y multiverse
 sudo apt update
 sudo apt install -y \
     git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server pkg-config \
-    unrar inotify-tools python3-pip net-tools tree m4
+    unrar inotify-tools python3-pip net-tools tree m4 chromium-browser ripgrep
 
 if [ ! -d ~/dots/git ]; then
     cd ~
@@ -120,23 +125,48 @@ cd /tmp
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $RELEASE stable"
 sudo apt-get update
-sudo apt-get install -y docker-ce docker-compose
+sudo apt-get install -y docker-ce
+
 sudo usermod -aG docker $(whoami)
 
-# Setup Opam (OCaml package manager)
-curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh | sh
-opam init
+function install_docker_compose() {
+  echo -e "\n\tFinding Docker Compose"
+  COMPOSE=($(command -v docker-compose) -f $COMPOSE_FILE)
+  if [ $? -ne 0 ]; then
+    echo -e "\tDocker-compose not installed: Attempting to install it now";
+    sudo curl \
+      -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" \
+      -o /usr/local/bin/docker-compose
+    sudo chmod 755 /usr/local/bin/docker-compose
 
-# This is the version that ReasonML uses, so we set it as default before installing the other global packages
-opam switch create 4.06.1
-opam switch set 4.06.1
 
-# Install the OCaml Language server
-opam pin add -y ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git
+    COMPOSE=($(command -v docker-compose) -f $COMPOSE_FILE)
+    if [ $? -ne 0 ]; then
+      echo -e "\tFailed to get docker-compose"
+      exit $?
+    fi
+  fi
+  echo -e "\tFinished installing docker-compose."
+  echo -e "\tUsing docker-compose command $COMPOSE"
+}
 
-# Install the dune (project builder), merlin (), and reason reason (The coding language I'm using)
-opam install -y dune merlin reason
+function install_opam() {
+    # Setup Opam (OCaml package manager)
+    curl -o /tmp/opam_install.sh https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh
+    chmod 755 /tmp/opam_install.sh
+    echo -e "\n\n" | /tmp/opam_install.sh --fresh --no-backup
+    echo -e "\n\n" opam init
 
+    # This is the version that ReasonML uses, so we set it as default before installing the other global packages
+    opam switch create 4.06.1
+    opam switch set 4.06.1
+
+    # Install the OCaml Language server
+    opam pin add -y ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git
+
+    # Install the dune (project builder), merlin (), and reason (The coding language I'm using)
+    opam install -y dune merlin reason
+}
 
 # VSCode setup
 cd /tmp
@@ -166,14 +196,18 @@ done
 
 # Install Rust and some associated features
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain stable
-~/.cargo/bin/cargo install cargo-edit
-~/.cargo/bin/cargo install cargo-expand
-~/.cargo/bin/rustup component add clippy rls rust-analysis rust-src
+~/.cargo/bin/rustup toolchain install nightly
+~/.cargo/bin/rustup component add ${RUSTUP}
 
-# Required for diesel_cli
-sudo apt install libpq-dev
+# Required before installing diesel_cli
+sudo apt install -y libpq-dev
 sudo ln -s /usr/lib/x86_64-linux-gnu/libzmq.so.5 /usr/lib/x86_64-linux-gnu/libpq.so
-~/.cargo/bin/cargo install diesel_cli --no-default-features --features postgres --verbose
+
+for item in ${CARGO} {
+    ~/.cargo/bin/cargo install ${item}
+}
+
+# cargo +stable fmt to run rustfmt no matter the active toolchain
 
 # This is so we can have HTTPS enabled on nginx
 function setup_lets_encrypt() {
@@ -191,15 +225,14 @@ function setup_lets_encrypt() {
 # setup nginx
 function add_nginx() {
     curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
-    sudo add-apt-repository "deb [arch=amd64] https://nginx.org/packages/ubuntu/ $RELEASE nginx"
-    sudo apt-add-repository "deb-src https://nginx.org/packages/ubuntu/ $RELEASE nginx"
+    sudo apt-add-repository -y "deb [arch=amd64] https://nginx.org/packages/ubuntu/ $RELEASE nginx"
     sudo apt update
 
     sudo mkdir -p /etc/nginx
-    sudo rm /etc/nginx/nginx.conf
+    sudo rm -f /etc/nginx/nginx.conf
     sudo ln -s ~/dots/nginx/nginx.conf /etc/nginx/nginx.conf
 
-    sudo apt install nginx
+    sudo apt install -y nginx
 }
 
 # Setup an Oauth2 authenticator for nginx using vouch
@@ -209,7 +242,7 @@ function start_vouch() {
 
 }
 
-
+install_opam
 add_nginx
 setup_lets_encrypt
 
