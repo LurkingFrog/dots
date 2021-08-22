@@ -204,7 +204,7 @@ sudo apt install -y libpq-dev
 sudo ln -s /usr/lib/x86_64-linux-gnu/libzmq.so.5 /usr/lib/x86_64-linux-gnu/libpq.so
 
 for item in ${CARGO} {
-    ~/.cargo/bin/cargo install ${item}
+    ~/.cargo/bin/cargo install ${=item}
 }
 
 # cargo +stable fmt to run rustfmt no matter the active toolchain
