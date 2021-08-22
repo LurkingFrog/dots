@@ -12,3 +12,6 @@ node_modules
 
 # Editors - VSCode
 .vscode
+
+# Vouch - Don't include the secret
+vouch/secret
