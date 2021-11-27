@@ -3,11 +3,30 @@
 WORKDIR=$(dirname $0:A)
 source $WORKDIR/conf.sh
 
-for x in ${CARGO}; do
-    local item=${=x}
-    ~/.cargo/bin/cargo install ${=item}
-done
-exit 1
+
+function update_nvm() {
+    # Start up NVM
+    NVM_DIR="${HOME}/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
+
+    local current=$(nvm -v)
+    local latest=$(
+        git -c 'versionsort.suffix=-' ls-remote \
+            --exit-code --refs --sort='version:refname' \
+            --tags https://github.com/nvm-sh/nvm.git '*.*.*' \
+        | tail --lines=1 \
+        | cut --delimiter='/' --fields=3 \
+    )
+
+    if [[ "$latest" != "v$current" ]]; then
+        echo -e "NVM is currently $current. Upgrading to $latest"
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/${latest}/install.sh | bash
+        [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+    else
+        echo -e "\t$latest is the most recent version of NVM and is already installed"
+    fi
+}
+
 
 echo -e "\n\nUpdating installed modules --"
 
@@ -18,10 +37,7 @@ echo -e "\n\nUpdating installed modules --"
 # Update node modules
 # export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
 echo -e "\n\tUpdating NVM/NPM\n"
-
-# Start up NVM
-NVM_DIR="${HOME}/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # This loads nvm
+update_nvm
 
 # Global - for some reason this is different than the local one I install packages from
 nvm install --latest-npm
@@ -33,8 +49,13 @@ ncu -u -l info
 npm i -d
 npm up -d
 
+echo -e "\nExporting the most recent extensions of VS Code"
+code-insiders --list-extensions | sort > ~/dots/vscode/extensions.lst
+
 
 echo -e "\n\tUpdating Rust"
 rustup update
 echo -e "\n\tUpdating Cargo Packages"
-cargo install ${CARGO}
+for x in ${CARGO}; do
+    ~/.cargo/bin/cargo install ${=x}
+done

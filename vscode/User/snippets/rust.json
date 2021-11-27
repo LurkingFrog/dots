@@ -169,9 +169,39 @@
       "}"
     ]
   },
+  "impl Display": {
+    "prefix": "display",
+    "description": "Implement the disply function, defaults to using Self::debug",
+    "body": [
+      "impl Display for $1 {",
+      "  fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {",
+      "     write!(f, \"{:?}\", self)",
+      "  }",
+      "}"
+    ]
+  },
+  "impl Default": {
+    "prefix": "default",
+    "description": "Implement default for the current object",
+    "body": ["impl Default for $1 {", "  fn default() -> $1 {", "    $1 {}", "  }", "}"]
+  },
   "Tailwind Style Class": {
     "prefix": "tw!",
     "description": "Simple tailwind macro shortcut",
     "body": "class={tw!(\"$1\")}"
+  },
+  "NomNomicon Grammar Item": {
+    "prefix": "nom-token",
+    "description": "Add a token item for a NomNomicon grammar",
+    "body": [
+      "/// $1",
+      "struct $1 {}",
+      "",
+      "impl $1 {",
+      "  pub fn get() -> Item {",
+      "    todo!(\"NomNomicon $1::get\")",
+      "  }",
+      "}"
+    ]
   }
 }

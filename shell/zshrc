@@ -61,7 +61,7 @@ ZSH_THEME="frog"
 
 plugins=( \
   history \
-  ubuntu cp rsync command-not-found dircycle taskwarrior zsh_reload \
+  ubuntu cp rsync command-not-found dircycle taskwarrior \
   cargo rust \
   git  git-extras \
   npm nvm node \
@@ -98,3 +98,4 @@ alias shup="~/dots/update.sh"
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 # [[ -f /home/dfogelson/.nvm/versions/node/v10.15.3/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/dfogelson/.nvm/versions/node/v10.15.3/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
