@@ -1,0 +1,4 @@
+reorder_modules = false
+
+max_width = 100
+tab_spaces = 2

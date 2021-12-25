@@ -94,6 +94,11 @@ alias pip-update="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs p
 # Bring all the installed components up to date
 alias shup="~/dots/update.sh"
 
+alias gh="cd $(git rev-parse --show-toplevel)"
+
+# Debug a local webpack instance
+# https://indepth.dev/posts/1166/this-will-make-you-more-efficient-at-debugging-webpack-unspecified-build-errors
+alias dlwpc="node --inspect-brk node_modules/webpack/bin/webpack.js"
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`

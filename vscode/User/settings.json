@@ -23,7 +23,7 @@
     "editor.defaultFormatter": "jaredly.reason-vscode"
   },
   "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust"
+    "editor.defaultFormatter": "matklad.rust-analyzer"
   },
   "auto-close-tag.activationOnLanguage": [
     "xml",
@@ -58,12 +58,7 @@
     ".vscode",
     "**/target"
   ],
-  "cSpell.ignoreWords": [
-    "Bdivus",
-    "Eval",
-    "Zulip",
-    "ymlogger"
-  ],
+  "cSpell.ignoreWords": ["Bdivus", "Eval", "Zulip", "ymlogger"],
   "cSpell.userWords": [
     "adhd",
     "adhd devs",
@@ -90,6 +85,7 @@
     "github's",
     "gmail",
     "Indicies",
+    "itype",
     "json",
     "kleisli",
     "kubernetes",
@@ -145,7 +141,8 @@
   "files.associations": {
     ".eslintrc": "jsonc",
     "*.json": "jsonc",
-    "*.tml": "shellscript"
+    "*.tml": "shellscript",
+    "*.re": "reason"
   },
   "files.exclude": {
     "**/.DS_Store": true,
@@ -188,7 +185,7 @@
   "mssql.connections": [
     {
       "database": "{{put-database-name-here}}",
-      "password": "{{put-password-here}}",
+      "password": "",
       "server": "{{put-server-name-here}}",
       "user": "{{put-username-here}}"
     }
@@ -256,7 +253,6 @@
   "rewrap.reformat": true,
   "rewrap.wholeComment": true,
   "rewrap.wrappingColumn": 100,
-  "rust-analyzer.checkOnSave.enable": false,
   "rust.all_features": true,
   "rust.build_on_save": true,
   "rust.clippy_preference": "on",
@@ -297,5 +293,22 @@
   "workbench.startupEditor": "newUntitledFile",
   "rust.unstable_features": true,
   "rust-analyzer.inlayHints.enable": false,
-  "workbench.editor.untitled.hint": "hidden"
+  "workbench.editor.untitled.hint": "hidden",
+  "reason.path.bsb": "/home/dfogelson/dots/node/node_modules/.bin/bsb",
+  "reason.path.ocamlmerlin": "/home/dfogelson/.nvm/versions/node/v14.15.5/bin/ocamlmerlin",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "rust-analyzer.cargo.allFeatures": true,
+  "editor.semanticTokenColorCustomizations": {
+    "[Default Light+]": {
+      "rules": {
+        "*.mutable": { "underline": false }
+      }
+    },
+    "[Default Dark+]": {
+      "rules": {
+        "*.mutable": { "underline": false }
+      }
+    }
+  }
 }

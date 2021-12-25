@@ -207,6 +207,11 @@ for item in ${CARGO} {
     ~/.cargo/bin/cargo install ${=item}
 }
 
+# Make my usual formatting global for cargo
+mkdir -p ~/.config/rustfmt
+cd $WORKDIR/rust
+ln -s $WORKDIR/rust/rustfmt.toml ~/.config/rustfmt/
+
 # cargo +stable fmt to run rustfmt no matter the active toolchain
 
 # This is so we can have HTTPS enabled on nginx
