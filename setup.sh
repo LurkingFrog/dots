@@ -5,8 +5,9 @@
 RELEASE=$(lsb_release -cs)
 
 # Import some configuration variables
+# The workdir should be your home directory
 WORKDIR=$(dirname $0:A)
-source $WORKDIR/conf.sh
+echo -e "Workdir: $WORKDIR"
 
 # TODO: Add self to sudoers
 # My DHCP doesn't seem to be supplying this line in /etc/network/interfaces
@@ -49,10 +50,11 @@ if [ ! -d ~/dots/git ]; then
         echo -e "WARNING: Cloned dots using HTTP. Please update the upstream for editing"
         git clone http://github.com/lurkingfrog/dots
     fi;
-
+    # Import some configuration variables
 else
     echo "Already cloned dots from git"
 fi
+source $WORKDIR/dots/conf.sh
 
 # setup git
 ln -s ~/dots/git/gitconfig ~/.gitconfig
