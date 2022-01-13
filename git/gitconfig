@@ -1,5 +1,5 @@
 [user]
-        email = dfogelson@fishheadlabs.com
+        email = dfogelson@theprocessfoundry.com
 	name = Dave Fogelson
 [push]
         default = upstream
@@ -8,9 +8,10 @@
         lineNumber = true
 [alias]
         g = grep --break --heading --line-number --color
-        dc = diff --color --ignore-all-space -- . ':!*.lock' ':!*.lock.json'
+        dc = !git diff --color --ignore-all-space -- $(git rev-parse --show-toplevel) ':!*.lock' ':!*lock.json'
         dn = diff --name-only
-        lp = log -p --color
+        l = log --name-only
+        lp = !git log -p --color -- $(git rev-parse --show-toplevel) ':!*.lock' ':!*-lock.json'
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
         psuh = push
         tree = ! /usr/local/bin/tree.sh --prune $(git rev-parse --show-toplevel)

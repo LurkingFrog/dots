@@ -205,9 +205,7 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain stable
 sudo apt install -y libpq-dev
 sudo ln -s /usr/lib/x86_64-linux-gnu/libzmq.so.5 /usr/lib/x86_64-linux-gnu/libpq.so
 
-for item in ${CARGO} {
-    ~/.cargo/bin/cargo install ${=item}
-}
+for item in ${CARGO}; do ~/.cargo/bin/cargo install ${=item}; done
 
 # Make my usual formatting global for cargo
 mkdir -p ~/.config/rustfmt
@@ -231,13 +229,21 @@ function setup_lets_encrypt() {
 
 # setup nginx
 function add_nginx() {
-    curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
-    sudo apt-add-repository -y "deb [arch=amd64] https://nginx.org/packages/ubuntu/ $RELEASE nginx"
+    curl -fsSL https://nginx.org/keys/nginx_signing.key \
+    | gpg --dearmor \
+    | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg \
+    > /dev/null
+
+    echo \
+        "deb [arch=amd64 signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
+         https://nginx.org/packages/ubuntu/ $RELEASE nginx" \
+    | sudo tee /etc/apt/sources.list.d/nginx.list > /dev/null
     sudo apt update
 
     sudo mkdir -p /etc/nginx
     sudo rm -f /etc/nginx/nginx.conf
     sudo ln -s ~/dots/nginx/nginx.conf /etc/nginx/nginx.conf
+    sudo chmod 744 /etc/nginx/nginx.conf
 
     sudo apt install -y nginx
 }

@@ -58,13 +58,15 @@
     ".vscode",
     "**/target"
   ],
-  "cSpell.ignoreWords": ["Bdivus", "Eval", "Zulip", "ymlogger"],
+  "cSpell.ignoreWords": ["Bdivus", "Eval", "Zulip", "recv", "ymlogger"],
   "cSpell.userWords": [
+    "Actix",
     "adhd",
     "adhd devs",
     "canonicalize",
     "cartograpic",
     "Commonize",
+    "comms",
     "creds",
     "denormalized",
     "denormalizing",
@@ -87,6 +89,8 @@
     "Indicies",
     "itype",
     "json",
+    "karnaugh",
+    "Karnaugh",
     "kleisli",
     "kubernetes",
     "microservice",
@@ -310,5 +314,15 @@
         "*.mutable": { "underline": false }
       }
     }
-  }
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.hover.above": false,
+  "editor.hover.delay": 500,
+  "cSpell.caseSensitive": true,
+  "cSpell.spellCheckDelayMs": 500,
+  "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
+  "errorLens.enabledDiagnosticLevels": ["error", "warning", "info", "hint"],
+  "errorLens.fontStyleItalic": true
 }
