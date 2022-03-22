@@ -7,6 +7,7 @@ export CARGO=( \
   cargo-watch \
   wasm-pack \
   trunk \
+  cargo-cache \
   "diesel_cli --no-default-features --features postgres --verbose" \
 )
 

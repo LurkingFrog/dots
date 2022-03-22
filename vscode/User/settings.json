@@ -14,16 +14,19 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[ocaml]": {
-    "editor.defaultFormatter": "jaredly.reason-vscode",
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  "[reason]": {
-    "editor.defaultFormatter": "jaredly.reason-vscode"
-  },
+  // "[ocaml]": {
+  //   "editor.defaultFormatter": "jaredly.reason-vscode",
+  //   "editor.insertSpaces": true,
+  //   "editor.tabSize": 2
+  // },
+  // "[reason]": {
+  //   "editor.defaultFormatter": "jaredly.reason-vscode"
+  // },
   "[rust]": {
     "editor.defaultFormatter": "matklad.rust-analyzer"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "auto-close-tag.activationOnLanguage": [
     "xml",
@@ -50,6 +53,7 @@
   // "scalaLanguageServer.heapSize": "2048M",
   "breadcrumbs.enabled": false,
   "cSpell.allowCompoundWords": true,
+  "cSpell.caseSensitive": true,
   "cSpell.ignorePaths": [
     "**/package-lock.json",
     "**/node_modules/**",
@@ -58,18 +62,24 @@
     ".vscode",
     "**/target"
   ],
-  "cSpell.ignoreWords": ["Bdivus", "Eval", "Zulip", "recv", "ymlogger"],
+  "cSpell.ignoreWords": ["Bdivus", "CPADS", "Eval", "Zulip", "recv", "ymlogger"],
+  "cSpell.spellCheckDelayMs": 500,
   "cSpell.userWords": [
     "Actix",
     "adhd",
     "adhd devs",
+    "ascii",
     "canonicalize",
     "cartograpic",
+    "chrono",
+    "Chrono",
     "Commonize",
     "comms",
+    "CPADS",
     "creds",
     "denormalized",
     "denormalizing",
+    "Deque",
     "descendents",
     "deserialization",
     "deserializes",
@@ -85,12 +95,16 @@
     "fooding",
     "github",
     "github's",
+    "globbing",
+    "gloo",
     "gmail",
+    "impls",
     "Indicies",
     "itype",
     "json",
     "karnaugh",
     "Karnaugh",
+    "karnode",
     "kleisli",
     "kubernetes",
     "microservice",
@@ -104,6 +118,8 @@
     "replicant",
     "replicants",
     "repr",
+    "roboto",
+    "Roboto",
     "routable",
     "rustc",
     "rustfmt",
@@ -115,6 +131,8 @@
     "struct",
     "structs",
     "tablular",
+    "tailwindcss",
+    "tokio",
     "untracked",
     "upsert",
     "uuid",
@@ -129,24 +147,49 @@
   "debug.openExplorerOnEnd": true,
   "debug.toolBarLocation": "docked",
   "dune.path": "/home/dfogelson/.opam/default/bin/dune",
+  "editor.bracketPairColorization.enabled": true,
   "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.hover.above": false,
+  "editor.hover.delay": 500,
   "editor.minimap.enabled": false,
   "editor.minimap.maxColumn": 100,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderControlCharacters": true,
   "editor.renderIndentGuides": false,
   "editor.rulers": [100],
+  "editor.semanticTokenColorCustomizations": {
+    "[Default Dark+]": {
+      "rules": {
+        "*.mutable": {
+          "underline": false
+        }
+      }
+    },
+    "[Default Light+]": {
+      "rules": {
+        "*.mutable": {
+          "underline": false
+        }
+      }
+    }
+  },
   // "FSharp.logLanguageServiceRequestsOutputWindowLevel": "DEBUG",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 100,
+  "emmet.includeLanguages": {
+    "rust": "html"
+  },
+  "errorLens.enabledDiagnosticLevels": ["error", "warning", "info", "hint"],
+  "errorLens.fontStyleItalic": true,
   "explorer.confirmDelete": false,
   "files.associations": {
     ".eslintrc": "jsonc",
     "*.json": "jsonc",
-    "*.tml": "shellscript",
-    "*.re": "reason"
+    "*.re": "reason",
+    "*.tml": "shellscript"
   },
   "files.exclude": {
     "**/.DS_Store": true,
@@ -252,15 +295,21 @@
   "prettier.printWidth": 100,
   "reason_language_server.format_width": 110,
   "reason_language_server.per_value_codelens": true,
+  "reason.path.bsb": "/home/dfogelson/dots/node/node_modules/.bin/bsb",
+  "reason.path.ocamlmerlin": "/home/dfogelson/.nvm/versions/node/v14.15.5/bin/ocamlmerlin",
   "redhat.telemetry.enabled": true,
   "rewrap.autoWrap.enabled": true,
   "rewrap.reformat": true,
   "rewrap.wholeComment": true,
   "rewrap.wrappingColumn": 100,
-  "rust.all_features": true,
-  "rust.build_on_save": true,
-  "rust.clippy_preference": "on",
-  "rust.rustflags": "-g -Z macro-backtrace -Z unstable-options",
+  "rust-analyzer.cargo.allFeatures": true,
+  "rust-analyzer.inlayHints.enable": false,
+  // "rust-analyzer.server.extraEnv": {
+  //   "RUSTFLAGS": "-g -Z macro-backtrace -Z unstable-options"
+  // },
+  // "rust-analyzer.runnableEnv": {
+  //   "RUSTFLAGS": "-g -Z macro-backtrace -Z unstable-options"
+  // },
   "search.exclude": {
     "**/.git": true,
     "**/bin": true,
@@ -270,6 +319,10 @@
     "**/obj": true,
     "**/packages": true,
     "**/paket-files": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "rust": "javascript",
+    "plaintext": "javascript"
   },
   "terminal.integrated.environmentChangesIndicator": "on",
   "todo-tree.general.tags": [
@@ -284,45 +337,20 @@
     "[x]"
   ],
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-  "todo-tree.tree.showScanModeButton": false,
+  "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
   "trailing-spaces.trimOnSave": true,
-  "vs-kubernetes": {
-    "vscode-kubernetes.minikube-path.linux": "/home/dfogelson/.vs-kubernetes/tools/minikube/linux-amd64/minikube"
-  },
   "vsicons.dontShowNewVersionMessage": true,
   "window.newWindowDimensions": "inherit",
   "window.openFoldersInNewWindow": "on",
   "window.restoreWindows": "all",
   "workbench.editor.labelFormat": "short",
-  "workbench.startupEditor": "newUntitledFile",
-  "rust.unstable_features": true,
-  "rust-analyzer.inlayHints.enable": false,
   "workbench.editor.untitled.hint": "hidden",
-  "reason.path.bsb": "/home/dfogelson/dots/node/node_modules/.bin/bsb",
-  "reason.path.ocamlmerlin": "/home/dfogelson/.nvm/versions/node/v14.15.5/bin/ocamlmerlin",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active",
-  "rust-analyzer.cargo.allFeatures": true,
-  "editor.semanticTokenColorCustomizations": {
-    "[Default Light+]": {
-      "rules": {
-        "*.mutable": { "underline": false }
-      }
-    },
-    "[Default Dark+]": {
-      "rules": {
-        "*.mutable": { "underline": false }
-      }
-    }
-  },
-  "[yaml]": {
+  "workbench.startupEditor": "newUntitledFile",
+  "prettier.jsxSingleQuote": true,
+  "versionlens.suggestions.showOnStartup": true,
+  "versionlens.suggestions.showPrereleasesOnStartup": true,
+  "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.hover.above": false,
-  "editor.hover.delay": 500,
-  "cSpell.caseSensitive": true,
-  "cSpell.spellCheckDelayMs": 500,
-  "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
-  "errorLens.enabledDiagnosticLevels": ["error", "warning", "info", "hint"],
-  "errorLens.fontStyleItalic": true
+  "tailwindCSS.experimental.classRegex": ["classnames\\(([^)]*)\\)", "'([^']*)'"]
 }

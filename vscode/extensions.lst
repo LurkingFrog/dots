@@ -8,14 +8,15 @@ bradlc.vscode-tailwindcss
 bungcip.better-toml
 chenglou92.rescript-vscode
 ckolkman.vscode-postgres
+codeandstuff.package-json-upgrade
 Compulim.compulim-vscode-closetag
-cschlosser.doxdocgen
 csstools.postcss
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
 donjayamanne.githistory
 DotJoshJohnson.xml
 DryWolf.dark-plus-plus-theme
+dtsvet.vscode-wasm
 eamodio.gitlens
 EditorConfig.EditorConfig
 eg2.vscode-npm-script
@@ -38,7 +39,6 @@ jpoissonnier.vscode-styled-components
 ldd-vs-code.better-package-json
 lfs.vscode-emacs-friendly
 mads-hartmann.bash-ide-vscode
-maelvalais.dune
 matklad.rust-analyzer
 mattn.Lisp
 michelemelluso.code-beautifier

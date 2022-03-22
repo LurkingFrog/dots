@@ -1,6 +1,6 @@
 [user]
         email = dfogelson@theprocessfoundry.com
-	name = Dave Fogelson
+        name = Dave Fogelson
 [push]
         default = upstream
 [grep]
@@ -8,11 +8,13 @@
         lineNumber = true
 [alias]
         g = grep --break --heading --line-number --color
-        dc = !git diff --color --ignore-all-space -- $(git rev-parse --show-toplevel) ':!*.lock' ':!*lock.json'
+        dc = diff --color --ignore-all-space
+        dcroot = !git diff --color --ignore-all-space -- $(git rev-parse --show-toplevel) ':!*.lock' ':!*lock.json'
         dn = diff --name-only
         l = log --name-only
-        lp = !git log -p --color -- $(git rev-parse --show-toplevel) ':!*.lock' ':!*-lock.json'
-	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+        lp = log -p --color
+        lproot = !git log -p --color -- $(git rev-parse --show-toplevel) ':!*.lock' ':!*-lock.json'
+        alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
         psuh = push
         tree = ! /usr/local/bin/tree.sh --prune $(git rev-parse --show-toplevel)
         home = rev-parse --show-toplevel
@@ -20,6 +22,6 @@
         diff = diff-so-fancy | less --tabs=4 -RFX
         show = diff-so-fancy | less --tabs=4 -RFX
 [color]
-	ui = auto
+        ui = auto
 [pull]
-	rebase = true
+        rebase = true

@@ -39,8 +39,8 @@ sudo apt install -y \
     git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server pkg-config \
     unrar inotify-tools python3-pip net-tools tree m4 chromium-browser ripgrep
 
-if [ ! -d ~/dots/git ]; then
-    cd ~
+if [ ! -d /opt/dots/git ]; then
+    cd /opt
     if [ -d ~/.ssh/id_rsa ]; then
         # Requires ssh key, but can push edits
         git clone git@github.com:LurkingFrog/dots
@@ -50,6 +50,8 @@ if [ ! -d ~/dots/git ]; then
         echo -e "WARNING: Cloned dots using HTTP. Please update the upstream for editing"
         git clone http://github.com/lurkingfrog/dots
     fi;
+    cd ~
+    ln -s /opt/dots .
     # Import some configuration variables
 else
     echo "Already cloned dots from git"
@@ -200,6 +202,9 @@ done
 curl https://sh.rustup.rs -sSf | sh -s -- -y -v --default-toolchain stable
 ~/.cargo/bin/rustup toolchain install nightly
 ~/.cargo/bin/rustup component add ${RUSTUP}
+
+# Build WASM from Rust projects
+rustup target add wasm32-unknown-unknown
 
 # Required before installing diesel_cli
 sudo apt install -y libpq-dev
