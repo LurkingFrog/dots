@@ -3,6 +3,16 @@
   {
     "key": "ctrl+shift+backspace",
     "command": "workbench.action.navigateToLastEditLocation"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "-closeFindWidget",
+    "when": "editorFocus && findWidgetVisible"
+  },
+  {
+    "key": "ctrl+shift+;",
+    "command": "-breadcrumbs.focus",
+    "when": "breadcrumbsPossible"
   }
   // { "key": "ctrl+a",            "command": "cursorHome",
   //   "when": "editorTextFocus" },

@@ -23,7 +23,7 @@
   //   "editor.defaultFormatter": "jaredly.reason-vscode"
   // },
   "[rust]": {
-    "editor.defaultFormatter": "matklad.rust-analyzer"
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -62,13 +62,14 @@
     ".vscode",
     "**/target"
   ],
-  "cSpell.ignoreWords": ["Bdivus", "CPADS", "Eval", "Zulip", "recv", "ymlogger"],
+  "cSpell.ignoreWords": ["Bdivus", "CPADS", "Eval", "Zulip", "addrs", "recv", "tbody", "ymlogger"],
   "cSpell.spellCheckDelayMs": 500,
   "cSpell.userWords": [
     "Actix",
     "adhd",
     "adhd devs",
     "ascii",
+    "behaviours",
     "canonicalize",
     "cartograpic",
     "chrono",
@@ -77,6 +78,9 @@
     "comms",
     "CPADS",
     "creds",
+    "cypherdb",
+    "deduping",
+    "denormalize",
     "denormalized",
     "denormalizing",
     "Deque",
@@ -132,13 +136,17 @@
     "structs",
     "tablular",
     "tailwindcss",
+    "tbody",
     "tokio",
+    "tyrell",
+    "unclickable",
     "untracked",
     "upsert",
     "uuid",
     "vsix",
     "wasm",
     "webpack",
+    "Wrapi",
     "yewzy",
     "ymlog"
   ],
@@ -156,7 +164,6 @@
   "editor.minimap.maxColumn": 100,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderControlCharacters": true,
-  "editor.renderIndentGuides": false,
   "editor.rulers": [100],
   "editor.semanticTokenColorCustomizations": {
     "[Default Dark+]": {
@@ -352,5 +359,19 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "tailwindCSS.experimental.classRegex": ["classnames\\(([^)]*)\\)", "'([^']*)'"]
+  "tailwindCSS.experimental.classRegex": [
+    ["classnames\\(([^)]*)\\)", "'([^']*)'"],
+    ["classmap!\\(([^)]*)\\)", "\"([^\"]*)\""]
+  ],
+  "php.validate.executablePath": "/usr/bin/php",
+  "editor.guides.indentation": false,
+  "rust-analyzer.completion.autoimport.enable": false,
+  "rust-analyzer.inlayHints.maxLength": 50,
+  "editor.find.seedSearchStringFromSelection": "never",
+  "rust-analyzer.trace.extension": true,
+  "rust-analyzer.server.path": null,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": true,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "window.zoomLevel": -1,
+  "emacs-mcx.cursorMoveOnFindWidget": true
 }

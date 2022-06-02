@@ -25,3 +25,7 @@
         ui = auto
 [pull]
         rebase = true
+[init]
+	defaultBranch = trunk
+[diff]
+	submodule = log

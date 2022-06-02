@@ -9,8 +9,8 @@ setopt INC_APPEND_HISTORY
 
 
 # Set the path
-PATH=/home/dfogelson/bin
-PATH=$PATH:/home/dfogelson/.cargo/bin
+PATH=$HOME/bin
+PATH=$PATH:$HOME/.cargo/bin
 PATH=$PATH:$JAVA_HOME
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/sbin
@@ -19,19 +19,20 @@ PATH=$PATH::/sbin
 PATH=$PATH:/bin
 PATH=$PATH:/snap/bin
 PATH=$PATH:/opt/cask/bin
+# Add the scala version manager
+PATH=$PATH:$HOME/.local/share/coursier/bin
 
 
 # Opam recommended variables
-test -r /home/dfogelson/.opam/opam-init/init.zsh \
-    && . /home/dfogelson/.opam/opam-init/init.zsh > /dev/null 2> /dev/null \
+test -r $HOME/.opam/opam-init/init.zsh \
+    && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null \
     || true
 
 # This is used in development docker containers
 export USER_ID=$(id -u):$(id -g)
 
 # Add JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-
+export JAVA_HOME=$(dirname $(readlink -f `which java`))/..
 
 
 # Add javascript/node's home and load
@@ -40,9 +41,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Node keeps moving this crap around and losing by global binaries
 # Maybe this is fixed by using nvm
-if [ -e /home/dfogelson/dots/node/node_modules/.bin ]
+if [ -e $HOME/dots/node/node_modules/.bin ]
 then
-  PATH=$PATH:/home/dfogelson/dots/node/node_modules/.bin
+  PATH=$PATH:$HOME/dots/node/node_modules/.bin
 fi
 
 if [ -e /usr/lib/node_modules/DotsGlobalPackages/node_modules/.bin ]
