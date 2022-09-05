@@ -21,6 +21,8 @@ PATH=$PATH:/snap/bin
 PATH=$PATH:/opt/cask/bin
 # Add the scala version manager
 PATH=$PATH:$HOME/.local/share/coursier/bin
+# Add in android studio (and game emulator)
+PATH=$PATH:$HOME/AndroidStudio/android-studio/bin
 
 
 # Opam recommended variables

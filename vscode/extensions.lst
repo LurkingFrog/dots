@@ -37,6 +37,7 @@ janisdd.vscode-edit-csv
 jeff-hykin.better-cpp-syntax
 jeremyrajan.webpack
 johnpapa.vscode-peacock
+josetr.cmake-language-support-vscode
 jpoissonnier.vscode-styled-components
 ldd-vs-code.better-package-json
 mads-hartmann.bash-ide-vscode
@@ -45,6 +46,7 @@ michelemelluso.code-beautifier
 mindaro-dev.file-downloader
 mindaro.mindaro
 ms-azuretools.vscode-docker
+ms-dotnettools.vscode-dotnet-runtime
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-mssql.data-workspace-vscode
 ms-mssql.mssql
