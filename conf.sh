@@ -8,7 +8,7 @@ export CARGO=( \
   wasm-pack \
   trunk \
   cargo-cache \
-  "diesel_cli --no-default-features --features postgres --verbose --version \"^1\"" \
+  "diesel_cli --no-default-features --features postgres --verbose --version ^1" \
 )
 
 export RUSTUP=(clippy rls rust-analysis rust-src)

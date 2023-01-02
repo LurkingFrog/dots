@@ -36,8 +36,8 @@ sudo chmod -R 777 /opt
 sudo apt-add-repository -y multiverse
 sudo apt update
 sudo apt install -y \
-    git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server pkg-config \
-    unrar inotify-tools python3-pip net-tools tree m4 chromium-browser ripgrep
+    git emacs zsh curl flake8 terminator sqlitebrowser dolphin gcc libssl-dev openssh-server \
+    direnv pkg-config unrar inotify-tools python3-pip net-tools tree m4 chromium-browser ripgrep
 
 if [ ! -d /opt/dots/git ]; then
     cd /opt
@@ -63,6 +63,9 @@ ln -s ~/dots/git/gitconfig ~/.gitconfig
 
 # setup the shell
 ln -s ~/dots/shell/screenrc ~/.screenrc
+
+# setup the directory based environment switching
+ln -s ~/dots/shell/envrc ~/.envrc
 
 echo "Adding ZSH as default shell for $USER"
 sudo usermod -s /bin/zsh $USER

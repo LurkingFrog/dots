@@ -8,6 +8,9 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -81,6 +84,7 @@
     "CPADS",
     "creds",
     "cypherdb",
+    "decr",
     "deduping",
     "denormalize",
     "denormalized",
@@ -92,7 +96,9 @@
     "devs",
     "dfogelson",
     "dotenv",
+    "DSLs",
     "Eeyo",
+    "emacs",
     "enform",
     "errored",
     "excel",
@@ -106,6 +112,7 @@
     "gmail",
     "gquery",
     "grapht",
+    "guids",
     "impls",
     "Indicies",
     "invoicer",
@@ -118,6 +125,7 @@
     "kubernetes",
     "microservice",
     "microservices",
+    "Nomical",
     "nomify",
     "onclick",
     "Opam",
@@ -145,6 +153,7 @@
     "structs",
     "tablular",
     "tailwindcss",
+    "Tauri",
     "tbody",
     "tokio",
     "tyrell",
@@ -156,6 +165,7 @@
     "wasm",
     "webpack",
     "Wrapi",
+    "xmlparser",
     "yewzy",
     "ymlog"
   ],
@@ -165,8 +175,10 @@
   "debug.toolBarLocation": "docked",
   "dune.path": "/home/dfogelson/.opam/default/bin/dune",
   "editor.bracketPairColorization.enabled": true,
+  "editor.find.seedSearchStringFromSelection": "never",
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
+  "editor.guides.indentation": false,
   "editor.hover.above": false,
   "editor.hover.delay": 500,
   "editor.minimap.enabled": false,
@@ -195,6 +207,7 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 100,
+  "emacs-mcx.cursorMoveOnFindWidget": true,
   "emmet.includeLanguages": {
     "rust": "html"
   },
@@ -231,11 +244,6 @@
   // "[scala]": {},
   "gitlens.keymap": "chorded",
   "gitlens.showWhatsNewAfterUpgrades": false,
-  "gitlens.views.fileHistory.enabled": true,
-  "grammarly.domain": "technical",
-  "grammarly.severity": {},
-  "grammarly.showExamples": true,
-  "grammarly.userWords": ["yewzy", "Yewzy"],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
   "json.schemas": [
@@ -245,14 +253,6 @@
     }
   ],
   "module-templates.engine": "handlebars",
-  "mssql.connections": [
-    {
-      "database": "{{put-database-name-here}}",
-      "password": "",
-      "server": "{{put-server-name-here}}",
-      "user": "{{put-username-here}}"
-    }
-  ],
   "peacock.favoriteColors": [
     {
       "name": "Angular Red",
@@ -307,10 +307,9 @@
       "value": "#42b883"
     }
   ],
-  "prettier.eslintIntegration": true,
+  "php.validate.executablePath": "/usr/bin/php",
+  "prettier.jsxSingleQuote": true,
   "prettier.printWidth": 100,
-  "reason_language_server.format_width": 110,
-  "reason_language_server.per_value_codelens": true,
   "reason.path.bsb": "/home/dfogelson/dots/node/node_modules/.bin/bsb",
   "reason.path.ocamlmerlin": "/home/dfogelson/.nvm/versions/node/v14.15.5/bin/ocamlmerlin",
   "redhat.telemetry.enabled": true,
@@ -318,8 +317,10 @@
   "rewrap.reformat": true,
   "rewrap.wholeComment": true,
   "rewrap.wrappingColumn": 100,
-  "rust-analyzer.cargo.allFeatures": true,
-  "rust-analyzer.inlayHints.enable": false,
+  "rust-analyzer.completion.autoimport.enable": false,
+  "rust-analyzer.inlayHints.maxLength": 50,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.server.path": null,
   // "rust-analyzer.server.extraEnv": {
   //   "RUSTFLAGS": "-g -Z macro-backtrace -Z unstable-options"
   // },
@@ -336,9 +337,13 @@
     "**/packages": true,
     "**/paket-files": true
   },
+  "tailwindCSS.experimental.classRegex": [
+    ["classnames\\(([^)]*)\\)", "'([^']*)'"],
+    ["classmap!\\(([^)]*)\\)", "\"([^\"]*)\""]
+  ],
   "tailwindCSS.includeLanguages": {
-    "rust": "javascript",
-    "plaintext": "javascript"
+    "plaintext": "javascript",
+    "rust": "javascript"
   },
   "terminal.integrated.environmentChangesIndicator": "on",
   "todo-tree.general.tags": [
@@ -362,25 +367,21 @@
   "workbench.editor.labelFormat": "short",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.startupEditor": "newUntitledFile",
-  "prettier.jsxSingleQuote": true,
-  "versionlens.suggestions.showOnStartup": true,
-  "versionlens.suggestions.showPrereleasesOnStartup": true,
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["classnames\\(([^)]*)\\)", "'([^']*)'"],
-    ["classmap!\\(([^)]*)\\)", "\"([^\"]*)\""]
-  ],
-  "php.validate.executablePath": "/usr/bin/php",
-  "editor.guides.indentation": false,
-  "rust-analyzer.completion.autoimport.enable": false,
-  "rust-analyzer.inlayHints.maxLength": 50,
-  "editor.find.seedSearchStringFromSelection": "never",
   "rust-analyzer.trace.extension": true,
-  "rust-analyzer.server.path": null,
-  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": true,
-  "rust-analyzer.inlayHints.typeHints.enable": false,
-  "emacs-mcx.cursorMoveOnFindWidget": true,
-  "window.zoomLevel": -1
+  "rust-analyzer.trace.server": "messages",
+  "rust-analyzer.diagnostics.experimental.enable": true,
+  "rust-analyzer.imports.prefer.no.std": true,
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
+  "rust-analyzer.restartServerOnConfigChange": true,
+  "rust-analyzer.references.excludeImports": true,
+  "window.zoomLevel": -1,
+  "FSharp.dotnetRoot": "/home/dfogelson/.dotnet",
+  "FSharp.indentationSize": 2,
+  "FSharp.smartIndent": true,
+  "vs-kubernetes": {
+    "vscode-kubernetes.kubectl-path.linux": "/home/dfogelson/.vs-kubernetes/tools/kubectl/kubectl",
+    "vscode-kubernetes.helm-path.linux": "/home/dfogelson/.vs-kubernetes/tools/helm/linux-amd64/helm",
+    "vscode-kubernetes.minikube-path.linux": "/home/dfogelson/.vs-kubernetes/tools/minikube/linux-amd64/minikube"
+  }
 }

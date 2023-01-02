@@ -11,6 +11,7 @@ setopt INC_APPEND_HISTORY
 # Set the path
 PATH=$HOME/bin
 PATH=$PATH:$HOME/.cargo/bin
+PATH=$PATH:$HOME/.dotnet
 PATH=$PATH:$JAVA_HOME
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/sbin
@@ -24,6 +25,8 @@ PATH=$PATH:$HOME/.local/share/coursier/bin
 # Add in android studio (and game emulator)
 PATH=$PATH:$HOME/AndroidStudio/android-studio/bin
 
+# Make sure dotnet runs
+export DOTNET_ROOT=$HOME/.dotnet
 
 # Opam recommended variables
 test -r $HOME/.opam/opam-init/init.zsh \
@@ -69,6 +72,7 @@ plugins=( \
   git  git-extras \
   npm nvm node \
   python pylint pip pep8 \
+  direnv \
   gradle \
   docker docker-compose kubectl\
   )
