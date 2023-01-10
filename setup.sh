@@ -112,7 +112,7 @@ ln -s ~/dots/node/tern-config ~/.tern-config
 # Setup LTR version of node using NVM (with modules for emacs' flycheck)
 mkdir -p "${HOME}/.nvm"
 export NVM_DIR="${HOME}/.nvm"
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install --lts
 
@@ -142,7 +142,7 @@ function install_docker_compose() {
   if [ $? -ne 0 ]; then
     echo -e "\tDocker-compose not installed: Attempting to install it now";
     sudo curl \
-      -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" \
+      -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-$(uname -s)-$(uname -m)" \
       -o /usr/local/bin/docker-compose
     sudo chmod 755 /usr/local/bin/docker-compose
 
