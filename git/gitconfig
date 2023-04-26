@@ -13,7 +13,9 @@
         dn = diff --name-only
         l = log --name-only
         lp = log -p --color
-        lproot = !git log -p --color -- $(git rev-parse --show-toplevel) ':!*.lock' ':!*-lock.json'
+	ln = log --name-only --color
+        lnroot = !git log --name-only --color -- $(git rev-parse --show-toplevel)
+	lproot = !git log -p --color -- $(git rev-parse --show-toplevel) ':!*.lock' ':!*-lock.json'
         alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
         psuh = push
         tree = ! /usr/local/bin/tree.sh --prune $(git rev-parse --show-toplevel)
